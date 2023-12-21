@@ -18,7 +18,6 @@
 				<input type="password" name="password" autocomplete="new-password" class="form-control-plaintext" required style="border:1px solid white; border-radius:5px;">
 			</div>
 			<button type="submit" class="btn btn-success">Ingresar</button>
-			<a href="<?php base_url() ?>registrar" class="btn btn-primary">Registrarse</a>
 		</form>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

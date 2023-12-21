@@ -1,5 +1,6 @@
 <a href="<?php echo base_url(); ?>admin/tablero" class="btn btn-danger">Regresar</a>
 <a href="#" data-bs-toggle="modal" data-bs-target="#registrarProducto" class="btn btn-success ">Registrar Producto</a>
+<a href="#" data-bs-toggle="modal" data-bs-target="#registrarcategoria" class="btn btn-secondary ">Agregar categoria</a>
 
 <table class="table table-bordered mt-3  ">
     <thead>
@@ -124,6 +125,36 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="registrarcategoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Registrar Categoria</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            </div>
+            <form method="POST" enctype="multipart/form-data" action="<?php echo base_url() ?>admin/producto/guardarcategoria">
+                <div class="modal-body">
+                    <div class="form-group mb-5 d-flex justify-content-between ">
+                        <label class="mx-3">Nombre:</label>
+                        <input autocomplete="off" type="text" name="nombre" class="form-control-plaintext border border-primary w-75 " required style="border:1px solid white; border-radius:5px;">
+                    </div>
+                    <div class="form-group mb-5 d-flex justify-content-between ">
+                        <label class="mx-3">Nombre:</label>
+                        <textarea autocomplete="off" rows="5" cols="33" name="descripcion" class="form-control-plaintext border border-primary w-75 " required style="border:1px solid white; border-radius:5px;"></textarea>
+                    </div>
+                    
 
                 </div>
                 <div class="modal-footer">

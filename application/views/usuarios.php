@@ -1,5 +1,5 @@
 <a href="<?php echo base_url(); ?>admin/tablero" class="btn btn-danger">Regresar</a>
-<a href="<?php echo base_url(); ?>admin/tablero" class="btn btn-success">Registrar Administrador</a>
+<a href="#" data-bs-toggle="modal" data-bs-target="#registraradmin" class="btn btn-success ">Registrar Administrador</a>
 <table class="table table-bordered mt-2">
   <thead>
     <tr>
@@ -63,3 +63,56 @@
     <?php endforeach; ?>
   </tbody>
 </table>
+
+
+
+
+
+<div class="modal fade" id="registraradmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registrar Proveedor</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+      </div>
+      <form method="POST" action="<?php echo base_url() ?>admin/usuarios/guardar/?>">
+        <div class="modal-body">
+
+          <div class="form-group mb-5 d-flex justify-content-between ">
+            <label class="mx-3">Nombre:</label>
+            <input type="text" name="nombre" class="form-control-plaintext border border-primary w-75 " required style="border:1px solid white; border-radius:5px;">
+          </div>
+          <div class="form-group mb-5 d-flex justify-content-between ">
+            <label class="mx-3">Apellido:</label>
+            <input type="text" name="apellido" class="form-control-plaintext border border-primary  w-75 " required style="border:1px solid white; border-radius:5px;">
+          </div>
+          <div class="form-group mb-5 d-flex justify-content-between ">
+            <label class="mx-3">usuario:</label>
+            <input type="text" name="usuario" class="form-control-plaintext border border-primary  w-75 " required style="border:1px solid white; border-radius:5px;">
+          </div>
+          <div class="form-group mb-5 d-flex justify-content-between ">
+            <label class="mx-3">Clave:</label>
+            <input type="password" name="clave" class="form-control-plaintext border border-primary  w-75 " required style="border:1px solid white; border-radius:5px;">
+          </div>
+          <div class="form-group mb-5 d-flex justify-content-between ">
+            <label class="mx-3">Correo:</label>
+            <input type="text" name="correo" class="form-control-plaintext border border-primary  w-75 " required style="border:1px solid white; border-radius:5px;">
+          </div>
+          <div class="form-group mb-5 d-flex justify-content-between ">
+            <label class="mx-3">Teléfono:</label>
+            <input type="number" name="telefono" class="form-control-plaintext border border-primary  w-75 " required style="border:1px solid white; border-radius:5px;">
+          </div>
+          <div class="form-group mb-5 d-flex justify-content-between ">
+            <label class="mx-3">Dirección:</label>
+            <input type="text" name="direccion" class="form-control-plaintext border border-primary  w-75 " required style="border:1px solid white; border-radius:5px;">
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Registrar</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

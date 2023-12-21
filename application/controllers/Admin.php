@@ -39,38 +39,53 @@ class Admin extends CI_Controller
 
     function usuarios($param1 = '', $param2 = '')
     {
-        if ($param1 == 'update') {
-            $data['nombre'] = $this->input->post('nombre');
-            $data['apellido'] = $this->input->post('apellido');
-            $data['usuario'] = $this->input->post('usuario');
-            if ($this->input->post('clave') != '') {
+        switch ($param1) {
+            
+            case 'guardar':
+                $data['nombre'] = $this->input->post('nombre');
+                $data['apellido'] = $this->input->post('apellido');
+                $data['correo'] = $this->input->post('correo');
                 $data['clave'] = sha1($this->input->post('clave'));
-            }
-            $data['correo'] = $this->input->post('correo');
-            $data['telefono'] = $this->input->post('telefono');
-            $data['direccion'] = $this->input->post('direccion');
-            $this->db->where('id_usuario', $param2);
-            $this->db->update('usuario', $data);
-            redirect(base_url('admin/usuarios'), 'refresh');
-        }
-        if ($param1 == 'desactivar') {
-            $data['estado'] = 0;
-            $this->db->where('id_usuario', $param2);
-            $this->db->update('usuario', $data);
-            redirect(base_url('admin/usuarios'), 'refresh');
-        }
-        if ($param1 == 'activar') {
-            $data['estado'] = 1;
-            $this->db->where('id_usuario', $param2);
-            $this->db->update('usuario', $data);
-            redirect(base_url('admin/usuarios'), 'refresh');
-        }
+                $data['direccion'] = $this->input->post('direccion');
+                $data['usuario'] = $this->input->post('usuario');
+                $data['telefono'] = $this->input->post('telefono');
+                $this->db->insert('usuario', $data);
+                redirect(base_url('admin/usuarios'), 'refresh');
+                break;
+            case 'update':
+                $data['nombre'] = $this->input->post('nombre');
+                $data['apellido'] = $this->input->post('apellido');
+                $data['usuario'] = $this->input->post('usuario');
+                if ($this->input->post('clave') != '') {
+                    $data['clave'] = sha1($this->input->post('clave'));
+                }
+                $data['correo'] = $this->input->post('correo');
+                $data['telefono'] = $this->input->post('telefono');
+                $data['direccion'] = $this->input->post('direccion');
+                $this->db->where('id_usuario', $param2);
+                $this->db->update('usuario', $data);
+                redirect(base_url('admin/usuarios'), 'refresh');
+                break;
+            case 'desactivar':
+                $data['estado'] = 0;
+                $this->db->where('id_usuario', $param2);
+                $this->db->update('usuario', $data);
+                redirect(base_url('admin/usuarios'), 'refresh');
+                break;
+            case 'activar':
+                $data['estado'] = 1;
+                $this->db->where('id_usuario', $param2);
+                $this->db->update('usuario', $data);
+                redirect(base_url('admin/usuarios'), 'refresh');
+                break;
 
-        if ($param1 == 'eliminar') {
-            $data['estado'] = 2;
-            $this->db->where('id_usuario', $param2);
-            $this->db->update('usuario', $data);
-            redirect(base_url('admin/usuarios'), 'refresh');
+            case 'eliminar':
+                $data['estado'] = 2;
+                $this->db->where('id_usuario', $param2);
+                $this->db->update('usuario', $data);
+                redirect(base_url('admin/usuarios'), 'refresh');
+                break;
+
         }
 
         //Envio de variables a las vistas.
@@ -84,6 +99,12 @@ class Admin extends CI_Controller
     function producto($param1 = '', $param2 = '')
     {
         switch ($param1) {
+            case 'guardarcategoria':
+                $data['nombre'] = $this->input->post('nombre');
+                $data['descripcion'] = $this->input->post('descripcion');
+                $this->db->insert('categoria', $data);
+                redirect(base_url('admin/producto'), 'refresh');
+                break;
             case "guardar":
                 $data['nombre'] = $this->input->post('nombre');
                 $data['cantidad'] = $this->input->post('cantidad');
@@ -121,7 +142,7 @@ class Admin extends CI_Controller
             case "update":
                 $page_data['title'] = 'Editar Producto';
                 $page_data['producto'] = $this->db->get_where('productos', array('id_producto' => $param2))->result_array();
-                $page_data['empresa'] = $this->db->get_where('proveedores',array('estado'=>1))->result_array();
+                $page_data['empresa'] = $this->db->get_where('proveedores', array('estado' => 1))->result_array();
                 $page_data['categoria'] = $this->db->get('categoria')->result_array();
                 $page_data['page_name'] = 'editar_producto';
                 $this->load->view('index', $page_data);
@@ -151,7 +172,7 @@ class Admin extends CI_Controller
             $page_data['title'] = 'Productos';
             $page_data['producto'] = $this->crud->getproductos();
             $page_data['page_name'] = 'productos';
-            $page_data['empresa'] = $this->db->get_where('proveedores',array('estado'=>1))->result_array();
+            $page_data['empresa'] = $this->db->get_where('proveedores', array('estado' => 1))->result_array();
             $page_data['categoria'] = $this->db->get('categoria')->result_array();
             $this->load->view('index', $page_data);
         }
@@ -351,7 +372,7 @@ class Admin extends CI_Controller
         foreach ($this->cart->contents() as $item) {
             $stock = $this->db->get_where('productos', array('id_producto' => $item['id']))->row()->cantidad;
             $cantidad = $this->input->post('cantidad_' . $item['rowid']);
-            $data['cantidad'] =  $stock - $cantidad;
+            $data['cantidad'] = $stock - $cantidad;
             $this->db->where('id_producto', $item['id']);
             $this->db->update('productos', $data);
         }
