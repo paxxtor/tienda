@@ -24,6 +24,10 @@ foreach ($clientes as $row) :
             <input type="text" name="correo" class="form-control" value="<?php echo $row['correo'] ?>" required>
         </div>
         <div class="form-group">
+            <label for="exampleInputtext1" class="form-label mt-4">Contraseña</label>
+            <input type="text" name="clave" class="form-control" value="">
+        </div>
+        <div class="form-group">
             <label for="exampleInputtext1" class="form-label mt-4">Tipo de Cliente</label>
             <select name="tipocliente" class="form-control" required>
                 <option value="">Seleccionar</option>

@@ -6,9 +6,9 @@
 </head>
 <body>
 	<div>
-		<a href="<?php echo base_url() ;?>admin">Inicio</a>
+		<a style="font-size: 40px;" href="<?php echo base_url() ;?>admin"><i class="bi bi-house-door-fill"></i></a>
 	</div>
-	<div class="container mt-5 mb-5">
+	<div class="container">
 		<?php include $page_name.'.php';?>
 	</div>
 	<?php include 'scripts.php';?>

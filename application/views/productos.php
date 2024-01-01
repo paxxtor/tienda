@@ -20,6 +20,7 @@
     </thead>
     <tbody>
         <?php foreach ($producto as $row) : ?>
+            <?php if($row['estado']!=2) : ?>
             <tr>
                 <td> <?php echo $row['id_producto'] ?></td>
                 <td><?php echo $row['nombre'] ?></td>
@@ -62,6 +63,7 @@
                     ?>
                 </td>
             </tr>
+            <?php endif; ?>
         <?php endforeach; ?>
     </tbody>
 </table>

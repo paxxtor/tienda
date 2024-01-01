@@ -6,6 +6,7 @@
       <th scope="col">ID</th>
       <th scope="col">Nombre</th>
       <th scope="col">Apellido</th>
+      <th scope="col">Usuario</th>
       <th scope="col">Correo</th>
       <th scope="col">Direccion</th>
       <th scope="col">Telefono</th>
@@ -15,10 +16,12 @@
   </thead>
   <tbody>
     <?php foreach ($users as $row) : ?>
+      <?php if($row['estado'] == 0 || $row['estado'] == 1) :?>
       <tr>
         <th scope="row"><?php echo $row['id_usuario']; ?></th>
         <td><?php echo $row['nombre']; ?></td>
         <td><?php echo $row['apellido']; ?></td>
+        <td><?php echo $row['usuario']; ?></td>
         <td><?php echo $row['correo']; ?></td>
         <td><?php echo $row['direccion']; ?></td>
         <td><?php echo $row['telefono']; ?></td>
@@ -60,6 +63,7 @@
           ?>
         </td>
       </tr>
+      <?php endif;?>
     <?php endforeach; ?>
   </tbody>
 </table>
@@ -72,7 +76,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Registrar Proveedor</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Registrar Administrador</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
       </div>
       <form method="POST" action="<?php echo base_url() ?>admin/usuarios/guardar/?>">

@@ -19,6 +19,7 @@
   </thead>
   <tbody>
     <?php foreach ($clientes as $row) : ?>
+      <?php if($row['estado']!=2) :?>
       <tr>
         <th scope="row"><?php echo $row['id_cliente']; ?></th>
         <td><?php echo $row['nombre']; ?></td>
@@ -70,6 +71,7 @@
           ?>
         </td>
       </tr>
+      <?php endif; ?>
     <?php endforeach; ?>
   </tbody>
 </table>

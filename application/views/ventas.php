@@ -1,8 +1,11 @@
-<h1 class="container" style="margin-bottom:25px;">productos</h1>
-
+<div class="container mb-1 d-flex justify-content-between align-items-center ">
+  <h1>productos</h1>
+  <a class="btn btn-success " href="<?php echo base_url()?>admin/ventas/mostrar_carrito"><i class="bi bi-bag-fill"></i>&nbsp; Mostrar Carrito</a>
+</div>
 <div class="container d-flex flex-wrap justify-content-between">
   <?php foreach ($listaproductos as $row): ?>
-    <form action="<?php echo base_url(); ?>admin/agregarcarrito" method="post">
+    <?php if($row['estado'] == 1): ?>
+    <form action="<?php echo base_url(); ?>admin/ventas/agregarcarrito" method="post">
       <div class="card" style="width: 16rem; margin-bottom: 5px; height: 490px;"> <img class="card-img-top"
           src="../public/uploads/productos/<?php echo $row['fotografia'] ?>" alt="Card image cap"
           style="width: auto; height: 170px; max-width: 200px; margin: 0 auto 1em auto; ">
@@ -37,6 +40,7 @@
         </div>
       </div>
     </form>
+    <?php endif; ?>
   <?php endforeach; ?>
 </div>
 
