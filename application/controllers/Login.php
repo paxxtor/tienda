@@ -15,9 +15,11 @@ class Login extends CI_Controller
 	public function index()
 	{
 		if ($this->session->userdata('nivel') > 0) {
-			redirect(base_url() . 'admin/tablero/', 'refresh');
+			redirect(base_url() . 'admin/tablero/', 'refresh');	
 		}
-		$this->load->view('login');
+		$page['title'] = 'Login';
+		$page['page_name'] = 'login';
+		$this->load->view('index', $page);
 	}
 
 	public function hola(){
@@ -30,7 +32,7 @@ class Login extends CI_Controller
 		redirect(base_url(), 'refresh');
 	}
 
-	function auth()
+	function verificar()
 	{
 		$username = $this->input->post('correo');
 		$password = sha1($this->input->post('password'));
@@ -190,44 +192,10 @@ class Login extends CI_Controller
 			redirect(base_url(), 'refresh');
 		} 	
 	}
+	
+	public function cerrar_session() {
+		$this->session->sess_destroy();
+		redirect(base_url(),'refresh');
+	}
 
-
-	// function test()
-	// {
-
-	// 	ini_set('display_errors', 1);
-	// 	ini_set('display_startup_errors', 1);
-	// 	error_reporting(E_ALL);
-
-
-	// 	$response = 'sdfsd';
-	// 	//echo 'fsdfsd';
-	// 	$phone = '43816544';
-	// 	$body = 'activacion';
-
-	// 	$chat = urlencode($body);
-	// 	$key = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiIxIiwiZGV2aWNlIjoiMSIsIm1lbWJlcnNoaXAiOiIwIiwidGF4IjoiMC4xIn0.NWQ0MWU2YjE5ODRiZmFmMGMxMWM0ODg0YTRhNTc1ZTg0NjQ0Y2Q3OGY5NDllYjQyMDVmZDQ1MTljODY1NWVlYw";
-	// 	$token = "HYMYSCAX47NAU88HOVGRYSHG2X15";
-	// 	$curl = curl_init();
-
-	// 			curl_setopt_array($curl, array(
-	// 			CURLOPT_URL => 'http://chats.mayansource.com/sendMessage',
-	// 			CURLOPT_RETURNTRANSFER => true,
-	// 			CURLOPT_ENCODING => '',
-	// 			CURLOPT_MAXREDIRS => 10,
-	// 			CURLOPT_TIMEOUT => 0,
-	// 			CURLOPT_FOLLOWLOCATION => true,
-	// 			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	// 			CURLOPT_CUSTOMREQUEST => 'POST',
-	// 			CURLOPT_POSTFIELDS => 'api_key='.$key.'&messageType=1&token='.$token.'&phone=502'.str_replace('+','',$phone).'&chat='.$chat,
-	// 			CURLOPT_HTTPHEADER => array(
-	// 				'Content-Type: application/x-www-form-urlencoded',
-	// 				),
-	// 			));
-
-	// 	$response = curl_exec($curl);
-
-	// 	curl_close($curl);
-	// 	echo $response;
-	// }
 }

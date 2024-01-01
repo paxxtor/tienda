@@ -1,0 +1,26 @@
+
+.colortext{
+    color: red;
+}
+
+.login-color-bg{
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-color-bg-tx{
+    color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-admincolor-bg{
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+}
+
+.altura{
+    min-height: 720px;
+}   
+
+@media (max-height: 768px) {
+    .distaciaaltura{
+        padding-top: 56px;
+    }
+}

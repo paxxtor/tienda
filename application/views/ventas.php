@@ -7,7 +7,7 @@
     <?php if($row['estado'] == 1): ?>
     <form action="<?php echo base_url(); ?>admin/ventas/agregarcarrito" method="post">
       <div class="card" style="width: 16rem; margin-bottom: 5px; height: 490px;"> <img class="card-img-top"
-          src="../public/uploads/productos/<?php echo $row['fotografia'] ?>" alt="Card image cap"
+          src="<?php echo base_url(); ?>public/uploads/productos/<?php echo $row['fotografia'] ?>" alt="Card image cap"
           style="width: auto; height: 170px; max-width: 200px; margin: 0 auto 1em auto; ">
         <div class="card-body d-flex flex-column justify-content-between">
           <h6 class="card-title">
