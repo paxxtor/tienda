@@ -76,3 +76,47 @@ ERROR - 2024-01-02 02:48:29 --> 404 Page Not Found: Login/vista
 ERROR - 2024-01-02 02:48:49 --> 404 Page Not Found: Login/vista
 ERROR - 2024-01-02 02:49:12 --> 404 Page Not Found: Login/vista
 ERROR - 2024-01-02 02:49:45 --> 404 Page Not Found: Login/vista
+ERROR - 2024-01-02 02:51:52 --> 404 Page Not Found: Login/vista
+ERROR - 2024-01-02 02:52:33 --> 404 Page Not Found: Login/vista
+ERROR - 2024-01-02 02:55:04 --> 404 Page Not Found: Login/vista
+ERROR - 2024-01-02 03:25:34 --> 404 Page Not Found: Login/public
+ERROR - 2024-01-02 03:25:34 --> 404 Page Not Found: Login/public
+ERROR - 2024-01-02 03:25:34 --> 404 Page Not Found: Login/public
+ERROR - 2024-01-02 03:25:34 --> 404 Page Not Found: Login/public
+ERROR - 2024-01-02 03:25:34 --> 404 Page Not Found: Login/public
+ERROR - 2024-01-02 03:25:34 --> 404 Page Not Found: Login/public
+ERROR - 2024-01-02 04:19:36 --> 404 Page Not Found: Loginadmin/index
+ERROR - 2024-01-02 04:19:38 --> 404 Page Not Found: Registrarse/index
+ERROR - 2024-01-02 04:30:04 --> 404 Page Not Found: Loginadmin/index
+ERROR - 2024-01-02 04:36:44 --> 404 Page Not Found: Loginadmin/index
+ERROR - 2024-01-02 04:38:58 --> 404 Page Not Found: Loginadmin/index
+ERROR - 2024-01-02 04:42:47 --> Severity: Compile Error --> 'break' not in the 'loop' or 'switch' context C:\wamp64\www\ejemplo\application\controllers\Login.php 65
+ERROR - 2024-01-02 04:43:01 --> Severity: Compile Error --> 'break' not in the 'loop' or 'switch' context C:\wamp64\www\ejemplo\application\controllers\Login.php 65
+ERROR - 2024-01-02 04:43:02 --> Severity: Compile Error --> 'break' not in the 'loop' or 'switch' context C:\wamp64\www\ejemplo\application\controllers\Login.php 65
+ERROR - 2024-01-02 04:43:17 --> Severity: Compile Error --> 'break' not in the 'loop' or 'switch' context C:\wamp64\www\ejemplo\application\controllers\Login.php 65
+ERROR - 2024-01-02 04:44:24 --> 404 Page Not Found: Login/public
+ERROR - 2024-01-02 04:44:24 --> 404 Page Not Found: Login/public
+ERROR - 2024-01-02 04:44:24 --> 404 Page Not Found: Login/public
+ERROR - 2024-01-02 04:47:40 --> 404 Page Not Found: Login/verificaradmin
+ERROR - 2024-01-02 05:06:35 --> 404 Page Not Found: Registrarse/index
+ERROR - 2024-01-02 06:42:16 --> 404 Page Not Found: Admin/recibo
+ERROR - 2024-01-02 06:42:39 --> Severity: error --> Exception: Cannot access offset of type string on string C:\wamp64\www\ejemplo\application\views\productos.php 23
+ERROR - 2024-01-02 06:43:08 --> Severity: error --> Exception: Cannot access offset of type string on string C:\wamp64\www\ejemplo\application\views\productos.php 23
+ERROR - 2024-01-02 06:43:49 --> Severity: error --> Exception: Cannot access offset of type string on string C:\wamp64\www\ejemplo\application\views\productos.php 23
+ERROR - 2024-01-02 06:43:50 --> Severity: error --> Exception: Cannot access offset of type string on string C:\wamp64\www\ejemplo\application\views\productos.php 23
+ERROR - 2024-01-02 06:44:37 --> Severity: error --> Exception: Cannot access offset of type string on string C:\wamp64\www\ejemplo\application\views\productos.php 23
+ERROR - 2024-01-02 06:49:37 --> Severity: error --> Exception: Cannot access offset of type string on string C:\wamp64\www\ejemplo\application\views\productos.php 23
+ERROR - 2024-01-02 06:49:38 --> Severity: error --> Exception: Cannot access offset of type string on string C:\wamp64\www\ejemplo\application\views\productos.php 23
+ERROR - 2024-01-02 06:51:15 --> Severity: error --> Exception: Cannot access offset of type string on string C:\wamp64\www\ejemplo\application\views\productos.php 23
+ERROR - 2024-01-02 06:51:18 --> Severity: error --> Exception: Cannot access offset of type string on string C:\wamp64\www\ejemplo\application\views\productos.php 23
+ERROR - 2024-01-02 06:53:18 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 24
+ERROR - 2024-01-02 06:53:18 --> Severity: Warning --> Undefined variable $color C:\wamp64\www\ejemplo\application\views\recibo.php 46
+ERROR - 2024-01-02 06:53:18 --> Severity: Warning --> Undefined variable $estado C:\wamp64\www\ejemplo\application\views\recibo.php 47
+ERROR - 2024-01-02 06:53:25 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 24
+ERROR - 2024-01-02 06:53:25 --> Severity: Warning --> Undefined variable $color C:\wamp64\www\ejemplo\application\views\recibo.php 46
+ERROR - 2024-01-02 06:53:25 --> Severity: Warning --> Undefined variable $estado C:\wamp64\www\ejemplo\application\views\recibo.php 47
+ERROR - 2024-01-02 07:18:58 --> Severity: error --> Exception: Cannot access offset of type string on string C:\wamp64\www\ejemplo\application\views\productos.php 23
+ERROR - 2024-01-02 07:19:34 --> Severity: error --> Exception: Cannot access offset of type string on string C:\wamp64\www\ejemplo\application\views\productos.php 23
+ERROR - 2024-01-02 07:21:30 --> Severity: error --> Exception: Cannot access offset of type string on string C:\wamp64\www\ejemplo\application\views\productos.php 23
+ERROR - 2024-01-02 07:21:31 --> Severity: error --> Exception: Cannot access offset of type string on string C:\wamp64\www\ejemplo\application\views\productos.php 23
+ERROR - 2024-01-02 07:21:32 --> Severity: error --> Exception: Cannot access offset of type string on string C:\wamp64\www\ejemplo\application\views\productos.php 23

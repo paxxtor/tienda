@@ -1,5 +1,4 @@
 <div class="mb-3 ">
-  <a href="<?php echo base_url(); ?>admin/tablero" class="btn btn-danger">Regresar</a>
   <a href="#" data-bs-toggle="modal" data-bs-target="#registrarcliente" class="btn btn-success">Registrar Cliente</a>
 </div>
 <table class="table table-bordered">

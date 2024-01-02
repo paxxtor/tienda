@@ -1,5 +1,4 @@
 
-<a href="<?php echo base_url();?>admin/tablero" class="btn btn-danger">Regresar</a>
 <form action="<?php echo base_url() ?>/admin/ventas/actualizarcarrito" id="formulario" method="post">
     <table class="table  mt-2 ">
         <thead class="thead-dark">

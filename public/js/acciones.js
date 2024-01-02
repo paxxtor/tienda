@@ -8,8 +8,28 @@ $(document).on("click", "#btniniciarsesion", function () {
 });
 
 $(document).on("click", "#btnadminlogin", function () {
-	window.location.href = base_url + "loginadmin";
+	window.location.href = base_url + "administrador";
 });
+
+function btnreenviocodigo(){
+	$.ajax({
+		type: 'GET',
+		url: base_url+'login/enviarcodigo',
+		success: function(data) {
+			console.log(data);
+			if(data == 102){
+				Toast.fire({
+					icon: "success",
+					title: "Se ha enviado nuevamente el codigo"
+				  });
+			}
+			else
+			{
+				window.location.href = base_url + "login";
+			}
+		}
+	});
+}
 
 
 
@@ -30,6 +50,23 @@ function enviar() {
 	});
 }
 
+//funciones usuario
+function enviarregistro() {
+	let datos = document.getElementById("formregistro");
+	let form = new FormData(datos);
+	$.ajax({
+		type: "POST",
+		url: base_url + "login/registrar/guardar",
+		data: form,
+		processData: false,
+		contentType: false,
+		success: function (data) {
+			console.log(data);
+			if(data == "102") window.location.href = base_url + "login/validarcuenta";
+		},
+	});
+}
+
 
 
 //funciones administrador
@@ -43,20 +80,7 @@ function enviaradmin() {
 		processData: false,
 		contentType: false,
 		success: function (data) {
-			switch (data) {
-				case "101":
-					login(101);
-					break;
-				case "201":
-					login(201);
-					break;
-				case "202":
-					login(202);
-					break;
-				case "203":
-					login(203);
-					break;
-			}
+			login(data);
 		},
 	});
 }

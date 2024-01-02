@@ -1,4 +1,4 @@
-<a href="<?php echo base_url(); ?>admin/tablero" class="btn btn-danger">Regresar</a>
+<a href="<?php echo base_url(); ?>admin" class="btn btn-danger">Regresar</a>
 <a href="#" data-bs-toggle="modal" data-bs-target="#registrarProducto" class="btn btn-success ">Registrar Producto</a>
 <a href="#" data-bs-toggle="modal" data-bs-target="#registrarcategoria" class="btn btn-secondary ">Agregar categoria</a>
 

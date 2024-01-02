@@ -1,4 +1,3 @@
-<a href="<?php echo base_url(); ?>admin/tablero" class="btn btn-danger">Regresar</a>
 <a href="#" data-bs-toggle="modal" data-bs-target="#registrarproveedor" class="btn btn-success">Registrar Proveedor</a>
 
 <table class="table table-bordered">

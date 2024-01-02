@@ -7,4 +7,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['carrito'] = 'admin/ventas/mostrar_carrito';
 $route['cerrar'] = 'login/cerrar_session';
 $route['productos'] = 'admin/ventas';
-$route[''] = '';
+$route['registrarse'] = 'login/registrar';
+$route['administrador'] = 'login/vistaadmin';

@@ -15,7 +15,7 @@ class Login extends CI_Controller
 	public function index()
 	{
 		if ($this->session->userdata('nivel') > 0) {
-			redirect(base_url() . 'admin/tablero/', 'refresh');	
+			redirect(base_url().'productos', 'refresh');	
 		}
 		$page['title'] = 'Login';
 		$page['page_name'] = 'login';
@@ -56,48 +56,40 @@ class Login extends CI_Controller
 		else{ 
 			echo '203'; 
 		}
-		// $username = $this->input->post('correo');
-		// $password = sha1($this->input->post('password'));
+	}
 
-		// $this->db->where('correo', $username);
-		// $this->db->where('clave', $password);
-		// $query = $this->db->get('clientes');
-		// if ($query->num_rows() > 0) {
-		// 	$row = $query->row();
-		// 	if ($row->estado == 1) {
-		// 		//Setear.
-		// 		$this->session->set_userdata('nivel', 1);
-		// 		$this->session->set_userdata('id_cliente', $row->id_cliente);
-		// 		$this->session->set_userdata('correo', $row->correo);
-		// 		$this->session->set_userdata('nombre', $row->nombre);
-		// 		$this->session->set_userdata('apellido', $row->apellido);
-		// 		$this->session->set_userdata('direccion', $row->direccion);
-		// 		$this->session->set_userdata('telefono', $row->telefono);
+    function vistaadmin(){
+		$page['title'] = 'administrador';
+		$page['page_name'] = 'administrador';
+		$this->load->view('index',$page);
+	}
 
-		// 		redirect(base_url() . 'admin/', 'refresh');
-		// 	} elseif ($row->estado == 0) {
-		// 		$this->enviarcodigo($row->correo);
-		// 	}
-		// } else {
-		// 	$this->db->where('estado', 1);
-		// 	$this->db->where('usuario', $username);
-		// 	$this->db->where('clave', $password);
-		// 	$query = $this->db->get('usuario');
-		// 	if ($query->num_rows() > 0) {
-		// 		$row = $query->row();
-		// 		if ($row->estado == 1) {
-		// 			$this->session->set_userdata('nivel', 2);
-		// 			$this->session->set_userdata('id_usuario', $row->id_usuario);
-		// 			$this->session->set_userdata('correo', $row->correo);
-		// 			$this->session->set_userdata('nombre', $row->nombre);
-		// 			$this->session->set_userdata('apellido', $row->apellido);
-		// 			redirect(base_url() . 'admin/', 'refresh');
-		// 		}
-		// 	}
-		// }
-
-		// $this->session->set_flashdata("Error", "1");
-		// redirect(base_url(), 'refresh');
+	public function adminverificar(){
+		$usuario = $this->input->post('usuario');
+		$clave = sha1($this->input->post('clave'));
+		if($usuario != '' && $clave != ''){
+			$this->db->where('usuario', $usuario);
+			$this->db->where('clave', $clave);
+			$query = $this->db->get('usuario')->result_array();
+			if(count($query) == 1){
+				if($query[0]['estado']==1)
+				{	
+					$this->session->set_userdata('arrayadmin', $query);
+					$this->session->set_userdata('nombre', $query[0]['nombre']);
+					$this->session->set_userdata('usuario', $usuario);
+					$this->session->set_userdata('clave', $clave);
+					$this->session->set_userdata('nivel', 2);
+					echo '101';
+				}
+				else{
+					echo '201';
+				}
+			}
+			else{ echo '202';}
+		}
+		else{ 
+			echo '203'; 
+		}
 	}
 
 	function registrar($param1 = '')
@@ -105,9 +97,11 @@ class Login extends CI_Controller
 		switch ($param1) {
 			case '':
 				if ($this->session->userdata('nivel') > 0) {
-					redirect(base_url() . 'admin/tablero/', 'refresh');
+					redirect(base_url(), 'refresh');
 				}
-				$this->load->view('registrar');
+				$data['title'] = 'Registro';
+				$data['page_name'] = 'registrar';
+				$this->load->view('index',$data);
 				break;
 			case 'guardar':
 				$correo = $this->db->get_where('clientes', array('correo' => $this->input->post('correo')))->num_rows();
@@ -119,6 +113,7 @@ class Login extends CI_Controller
 					$data['correo'] = $this->input->post('correo');
 					$data['clave'] = sha1($this->input->post('clave'));
 					$data['direccion'] = $this->input->post('direccion');
+					$data['estado'] = 3;
 					$this->db->insert('clientes', $data);
 					$this->enviarcodigo($data['correo']);
 					break;
@@ -201,16 +196,15 @@ class Login extends CI_Controller
 						$data['estado'] = 1;
 						$this->db->where('correo', $correo);
 						$this->db->update('clientes', $data);
-						$this->session->set_flashdata("alerta", "3");
+						$this->session->set_flashdata("verificacion", "1");
 						redirect(base_url() . 'login', 'refresh');
 					} else {
-						$this->session->set_flashdata("Error", "1");
+						$this->session->set_flashdata("verificacion", "2");
 						redirect(base_url() . 'login/validarcuenta', 'refresh');
 					}
 					break;
 			}
 		} 
-		
 		else {
 			$this->session->set_flashdata('alerta','3');
 			redirect(base_url(), 'refresh');

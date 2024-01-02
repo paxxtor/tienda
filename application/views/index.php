@@ -7,6 +7,7 @@
 		<title><?php echo $title;?></title>
 	</head>
 	<body class="distaciaaltura">
+		<div style="height: 56px"></div>
 		<div class="login-color-bg fixed-top">
 			<nav class="navbar container navbar-expand-lg" data-bs-theme="dark">
 				<div class="container-fluid">
@@ -35,12 +36,27 @@
 									>Productos</a
 								>
 							</li>
+							<?php  if ($this->session->userdata('nivel') ==1) :?>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Pricing</a>
+								<a class="nav-link" href="<?php echo base_url();?>admin/historial">Historial</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Nosotros</a>
-							</li>
+							<?php elseif($this->session->userdata('nivel') ==2) :?>
+								<li class="nav-item">
+									<a class="nav-link" href="<?php echo base_url();?>admin/producto">Lista Productos</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="<?php echo base_url();?>admin/usuarios">Administradores</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="<?php echo base_url();?>admin/proveedores">Proveedores</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="<?php echo base_url();?>admin/clientes">Clientes</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="<?php echo base_url();?>admin/historial">Historial</a>
+								</li>
+								<?php  endif;?>
 						</ul>
 						<form class="d-flex">
 							<a class="btn btn-warning mx-1" href="<?php echo base_url(); ?>login">
@@ -65,7 +81,7 @@
 			let base_url = "<?php echo base_url(); ?>";
       let nombreadmin = "<?php echo $this->session->userdata('nombre'); ?>";
       let nivel = "<?php echo $this->session->userdata('nivel'); ?>";
-      sessionStorage.setItem("alerta", "<?php echo $this->session->flashdata('alerta'); ?>");
+      sessionStorage.setItem("verificacion", "<?php echo $this->session->flashdata('verificacion'); ?>");
 		</script>
 
 		<?php include 'scripts.php';?>

@@ -3,7 +3,7 @@ function login(valor = "") {
   switch (valor) {
     case "101":
       sessionStorage.setItem("alerta", "1");
-      window.location.href = base_url + "login/vista/bienvenidausuario";
+      window.location.href = base_url + "productos";
       break;
     case "201":
       console.log("No funciona");
@@ -63,11 +63,19 @@ switch (sessionStorage.getItem("alerta")) {
       title: "Código enviado exitosamente"
     });
     break;
-	case "3":
-    sessionStorage.removeItem("alerta");
+}
+
+if(sessionStorage.getItem("verificacion") == "1"){
+	sessionStorage.removeItem("verificacion");
     Toast.fire({
       icon: "success",
       title: "Cuenta Verificada Con Exito"
     });
-    break;
+}
+if(sessionStorage.getItem("verificacion") == "2"){
+	sessionStorage.removeItem("verificacion");
+    Toast.fire({
+      icon: "error",
+      title: "Codigo inválido"
+    });
 }

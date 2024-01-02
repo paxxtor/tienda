@@ -7,7 +7,7 @@
 	>
 		<div class="d-flex justify-content-center">
 			<img
-				src="<?php base_url();?>public/assets/login-icon.svg"
+				src="<?php echo base_url();?>public/assets/login-icon.svg"
 				alt="login-icon"
 				style="height: 7rem"
 			/>
@@ -30,7 +30,7 @@
 			<div class="input-group mt-4">
 				<div class="input-group-text login-color-bg">
 					<img
-						src="<?php base_url();?>public/assets/username-icon.svg"
+						src="<?php echo base_url();?>public/assets/username-icon.svg"
 						alt="username-icon"
 						style="height: 1rem"
 					/>
@@ -46,7 +46,7 @@
 			<div class="input-group mt-1">
 				<div class="input-group-text login-color-bg">
 					<img
-						src="<?php base_url();?>public/assets/password-icon.svg"
+						src="<?php echo base_url();?>public/assets/password-icon.svg"
 						alt="password-icon"
 						style="height: 1rem"
 					/>
