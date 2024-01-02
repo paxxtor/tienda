@@ -65,6 +65,7 @@
 			let base_url = "<?php echo base_url(); ?>";
       let nombreadmin = "<?php echo $this->session->userdata('nombre'); ?>";
       let nivel = "<?php echo $this->session->userdata('nivel'); ?>";
+      sessionStorage.setItem("alerta", "<?php echo $this->session->flashdata('alerta'); ?>");
 		</script>
 
 		<?php include 'scripts.php';?>

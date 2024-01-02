@@ -24,20 +24,8 @@ function enviar() {
 		processData: false,
 		contentType: false,
 		success: function (data) {
-			switch (data) {
-				case "101":
-					login(101);
-					break;
-				case "201":
-					login(201);
-					break;
-				case "202":
-					login(202);
-					break;
-				case "203":
-					login(203);
-					break;
-			}
+			console.log(data);
+			login(data);
 		},
 	});
 }

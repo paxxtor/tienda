@@ -22,10 +22,6 @@ class Login extends CI_Controller
 		$this->load->view('index', $page);
 	}
 
-	public function hola(){
-		echo 'saludos';
-	}
-
 	function salir()
 	{
 		$this->session->sess_destroy();
@@ -34,48 +30,74 @@ class Login extends CI_Controller
 
 	function verificar()
 	{
-		$username = $this->input->post('correo');
-		$password = sha1($this->input->post('password'));
-
-		$this->db->where('correo', $username);
-		$this->db->where('clave', $password);
-		$query = $this->db->get('clientes');
-		if ($query->num_rows() > 0) {
-			$row = $query->row();
-			if ($row->estado == 1) {
-				//Setear.
-				$this->session->set_userdata('nivel', 1);
-				$this->session->set_userdata('id_cliente', $row->id_cliente);
-				$this->session->set_userdata('correo', $row->correo);
-				$this->session->set_userdata('nombre', $row->nombre);
-				$this->session->set_userdata('apellido', $row->apellido);
-				$this->session->set_userdata('direccion', $row->direccion);
-				$this->session->set_userdata('telefono', $row->telefono);
-
-				redirect(base_url() . 'admin/', 'refresh');
-			} elseif ($row->estado == 0) {
-				$this->enviarcodigo($row->correo);
-			}
-		} else {
-			$this->db->where('estado', 1);
-			$this->db->where('usuario', $username);
-			$this->db->where('clave', $password);
-			$query = $this->db->get('usuario');
-			if ($query->num_rows() > 0) {
-				$row = $query->row();
-				if ($row->estado == 1) {
-					$this->session->set_userdata('nivel', 2);
-					$this->session->set_userdata('id_usuario', $row->id_usuario);
-					$this->session->set_userdata('correo', $row->correo);
-					$this->session->set_userdata('nombre', $row->nombre);
-					$this->session->set_userdata('apellido', $row->apellido);
-					redirect(base_url() . 'admin/', 'refresh');
+		$correo = $this->input->post('correo');
+		$clave = sha1($this->input->post('clave'));
+		if($correo != '' && $clave != ''){
+			$this->db->where('correo', $correo);
+			$this->db->where('clave', $clave);
+			$query = $this->db->get('clientes')->result_array();
+			if(count($query) == 1){
+				if($query[0]['estado']==1)
+				{
+					$this->session->set_userdata('arraycliente', $query);
+					$this->session->set_userdata('nombre', $query[0]['nombre']);
+					$this->session->set_userdata('correo', $correo);
+					$this->session->set_userdata('clave', $clave);
+					$this->session->set_userdata('nivel', 1);
+					echo '101';
+				}
+				else{
+					if($query[0]['estado']==3) $this->enviarcodigo($correo);
+					else echo '201';
 				}
 			}
+			else{ echo '202';}
 		}
+		else{ 
+			echo '203'; 
+		}
+		// $username = $this->input->post('correo');
+		// $password = sha1($this->input->post('password'));
 
-		$this->session->set_flashdata("Error", "1");
-		redirect(base_url(), 'refresh');
+		// $this->db->where('correo', $username);
+		// $this->db->where('clave', $password);
+		// $query = $this->db->get('clientes');
+		// if ($query->num_rows() > 0) {
+		// 	$row = $query->row();
+		// 	if ($row->estado == 1) {
+		// 		//Setear.
+		// 		$this->session->set_userdata('nivel', 1);
+		// 		$this->session->set_userdata('id_cliente', $row->id_cliente);
+		// 		$this->session->set_userdata('correo', $row->correo);
+		// 		$this->session->set_userdata('nombre', $row->nombre);
+		// 		$this->session->set_userdata('apellido', $row->apellido);
+		// 		$this->session->set_userdata('direccion', $row->direccion);
+		// 		$this->session->set_userdata('telefono', $row->telefono);
+
+		// 		redirect(base_url() . 'admin/', 'refresh');
+		// 	} elseif ($row->estado == 0) {
+		// 		$this->enviarcodigo($row->correo);
+		// 	}
+		// } else {
+		// 	$this->db->where('estado', 1);
+		// 	$this->db->where('usuario', $username);
+		// 	$this->db->where('clave', $password);
+		// 	$query = $this->db->get('usuario');
+		// 	if ($query->num_rows() > 0) {
+		// 		$row = $query->row();
+		// 		if ($row->estado == 1) {
+		// 			$this->session->set_userdata('nivel', 2);
+		// 			$this->session->set_userdata('id_usuario', $row->id_usuario);
+		// 			$this->session->set_userdata('correo', $row->correo);
+		// 			$this->session->set_userdata('nombre', $row->nombre);
+		// 			$this->session->set_userdata('apellido', $row->apellido);
+		// 			redirect(base_url() . 'admin/', 'refresh');
+		// 		}
+		// 	}
+		// }
+
+		// $this->session->set_flashdata("Error", "1");
+		// redirect(base_url(), 'refresh');
 	}
 
 	function registrar($param1 = '')
@@ -137,9 +159,9 @@ class Login extends CI_Controller
 		$response = curl_exec($curl);
 		curl_close($curl);
 	}
+
 	function enviarcodigo($correo = '')
 	{
-
 		if ($correo == '') {
 			if ($this->session->tempdata('verificarcorreo') != '') {
 				$correo = $this->session->tempdata('verificarcorreo');
@@ -160,7 +182,7 @@ class Login extends CI_Controller
 			$this->submitWa($usuario['telefono'], $body);
 			$this->session->set_tempdata('verificarcodigo', $codigo, 15);
 			$this->session->set_tempdata('verificarcorreo', $correo, 15);
-			redirect(base_url() . 'login/validarcuenta/', 'refresh');
+			echo '102';
 		}
 	}
 
@@ -169,7 +191,9 @@ class Login extends CI_Controller
 		if ($this->session->tempdata('verificarcorreo') != '') {
 			switch ($param1) {
 				case '':
-					$this->load->view('confirmarcodigo');
+					$data['title'] = "validar cuenta";
+					$data["page_name"] = "confirmarcodigo";
+					$this->load->view('index',$data);
 					break;
 				case 'verificar':
 					if ($this->input->post('codigo') == $this->session->tempdata('verificarcodigo')) {
@@ -177,8 +201,8 @@ class Login extends CI_Controller
 						$data['estado'] = 1;
 						$this->db->where('correo', $correo);
 						$this->db->update('clientes', $data);
-						$this->session->set_flashdata("alerta", "1");
-						redirect(base_url() . 'login/', 'refresh');
+						$this->session->set_flashdata("alerta", "3");
+						redirect(base_url() . 'login', 'refresh');
 					} else {
 						$this->session->set_flashdata("Error", "1");
 						redirect(base_url() . 'login/validarcuenta', 'refresh');
@@ -197,5 +221,6 @@ class Login extends CI_Controller
 		$this->session->sess_destroy();
 		redirect(base_url(),'refresh');
 	}
-
 }
+
+

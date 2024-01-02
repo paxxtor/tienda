@@ -1,19 +1,3 @@
-<!-- <form action="<?php echo base_url(); ?>login/auth" method="POST">
-	<h2>Iniciar sesion</h2>
-	<div class="form-group mb-5">
-		<label class="col-sm-2 col-form-label">Correo:</label>
-		<input type="text" name="correo" class="form-control-plaintext" required
-			style="border:1px solid white; border-radius:5px;">
-	</div>
-	<div class="form-group mb-5">
-		<label for="staticEmail" class="col-sm-2 col-form-label">Clave:</label>
-		<input type="password" name="password" autocomplete="new-password" class="form-control-plaintext"
-			required style="border:1px solid white; border-radius:5px;">
-	</div>
-	<button type="submit" class="btn btn-primary">Ingresar</button>
-	<a href="<?php echo base_url() ?>login/registrar" class="btn btn-success">Registrarse</a>
-</form> -->
-
 <div
 	class="login-color-bg d-flex justify-content-center align-items-center vh-100 altura"
 >
@@ -23,7 +7,7 @@
 	>
 		<div class="d-flex justify-content-center">
 			<img
-				src="public/assets/login-icon.svg"
+				src="<?php base_url();?>public/assets/login-icon.svg"
 				alt="login-icon"
 				style="height: 7rem"
 			/>
@@ -36,11 +20,6 @@
 				</div>
 			<?php endif; ?>
 
-			<?php if ($this->session->flashdata("alerta") == "1"): ?>
-				<div class="alert alert-success">
-					cuenta verificada con exito.
-				</div>
-			<?php endif; ?>
 			<?php if ($this->session->flashdata("alerta") == "3"): ?>
 				<div class="alert alert-warning">
 					Tiempo de espera excedido, por favor vuelva a ingrear sus datos.
@@ -51,7 +30,7 @@
 			<div class="input-group mt-4">
 				<div class="input-group-text login-color-bg">
 					<img
-						src="public/assets/username-icon.svg"
+						src="<?php base_url();?>public/assets/username-icon.svg"
 						alt="username-icon"
 						style="height: 1rem"
 					/>
@@ -67,7 +46,7 @@
 			<div class="input-group mt-1">
 				<div class="input-group-text login-color-bg">
 					<img
-						src="public/assets/password-icon.svg"
+						src="<?php base_url();?>public/assets/password-icon.svg"
 						alt="password-icon"
 						style="height: 1rem"
 					/>
@@ -76,7 +55,7 @@
 					class="form-control bg-light"
 					type="password"
 					placeholder="Contraseña"
-					name='password'
+					name='clave'
 					required
 				/>
 			</div>
