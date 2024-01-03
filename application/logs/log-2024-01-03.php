@@ -113,3 +113,130 @@ ERROR - 2024-01-03 00:19:10 --> Severity: Warning --> mysqli::real_connect(): (H
 ERROR - 2024-01-03 00:19:10 --> Unable to connect to the database
 ERROR - 2024-01-03 00:19:13 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'ejemplo' C:\wamp64\www\ejemplo\system\database\drivers\mysqli\mysqli_driver.php 211
 ERROR - 2024-01-03 00:19:13 --> Unable to connect to the database
+ERROR - 2024-01-03 15:38:20 --> Severity: Warning --> Undefined array key "nombre" C:\wamp64\www\ejemplo\application\views\historial.php 24
+ERROR - 2024-01-03 15:38:20 --> Severity: Warning --> Undefined array key "apellido" C:\wamp64\www\ejemplo\application\views\historial.php 24
+ERROR - 2024-01-03 15:38:20 --> Severity: Warning --> Undefined array key "telefono" C:\wamp64\www\ejemplo\application\views\historial.php 33
+ERROR - 2024-01-03 15:38:20 --> Severity: Warning --> Undefined array key "nombre" C:\wamp64\www\ejemplo\application\views\historial.php 24
+ERROR - 2024-01-03 15:38:20 --> Severity: Warning --> Undefined array key "apellido" C:\wamp64\www\ejemplo\application\views\historial.php 24
+ERROR - 2024-01-03 15:38:20 --> Severity: Warning --> Undefined array key "telefono" C:\wamp64\www\ejemplo\application\views\historial.php 33
+ERROR - 2024-01-03 15:38:32 --> Severity: Warning --> Undefined array key "nombre" C:\wamp64\www\ejemplo\application\views\historial.php 24
+ERROR - 2024-01-03 15:38:32 --> Severity: Warning --> Undefined array key "apellido" C:\wamp64\www\ejemplo\application\views\historial.php 24
+ERROR - 2024-01-03 15:38:32 --> Severity: Warning --> Undefined array key "telefono" C:\wamp64\www\ejemplo\application\views\historial.php 33
+ERROR - 2024-01-03 15:38:32 --> Severity: Warning --> Undefined array key "nombre" C:\wamp64\www\ejemplo\application\views\historial.php 24
+ERROR - 2024-01-03 15:38:32 --> Severity: Warning --> Undefined array key "apellido" C:\wamp64\www\ejemplo\application\views\historial.php 24
+ERROR - 2024-01-03 15:38:32 --> Severity: Warning --> Undefined array key "telefono" C:\wamp64\www\ejemplo\application\views\historial.php 33
+ERROR - 2024-01-03 15:38:33 --> Severity: Warning --> Undefined array key "nombre" C:\wamp64\www\ejemplo\application\views\historial.php 24
+ERROR - 2024-01-03 15:38:33 --> Severity: Warning --> Undefined array key "apellido" C:\wamp64\www\ejemplo\application\views\historial.php 24
+ERROR - 2024-01-03 15:38:33 --> Severity: Warning --> Undefined array key "telefono" C:\wamp64\www\ejemplo\application\views\historial.php 33
+ERROR - 2024-01-03 15:38:33 --> Severity: Warning --> Undefined array key "nombre" C:\wamp64\www\ejemplo\application\views\historial.php 24
+ERROR - 2024-01-03 15:38:33 --> Severity: Warning --> Undefined array key "apellido" C:\wamp64\www\ejemplo\application\views\historial.php 24
+ERROR - 2024-01-03 15:38:33 --> Severity: Warning --> Undefined array key "telefono" C:\wamp64\www\ejemplo\application\views\historial.php 33
+ERROR - 2024-01-03 15:53:09 --> 404 Page Not Found: Admin/recibo
+ERROR - 2024-01-03 15:57:04 --> Severity: error --> Exception: syntax error, unexpected variable "$fila", expecting "," or ";" C:\wamp64\www\ejemplo\application\views\historial.php 35
+ERROR - 2024-01-03 15:57:56 --> Severity: error --> Exception: syntax error, unexpected token ";", expecting ")" C:\wamp64\www\ejemplo\application\views\historial.php 35
+ERROR - 2024-01-03 15:58:13 --> Severity: error --> Exception: syntax error, unexpected token ";", expecting ")" C:\wamp64\www\ejemplo\application\views\historial.php 35
+ERROR - 2024-01-03 15:58:29 --> Severity: error --> Exception: syntax error, unexpected token ";", expecting ")" C:\wamp64\www\ejemplo\application\views\historial.php 35
+ERROR - 2024-01-03 15:58:29 --> Severity: error --> Exception: syntax error, unexpected token ";", expecting ")" C:\wamp64\www\ejemplo\application\views\historial.php 35
+ERROR - 2024-01-03 15:58:29 --> Severity: error --> Exception: syntax error, unexpected token ";", expecting ")" C:\wamp64\www\ejemplo\application\views\historial.php 35
+ERROR - 2024-01-03 15:58:29 --> Severity: error --> Exception: syntax error, unexpected token ";", expecting ")" C:\wamp64\www\ejemplo\application\views\historial.php 35
+ERROR - 2024-01-03 16:06:26 --> Severity: Warning --> Undefined array key "id" C:\wamp64\www\ejemplo\application\views\detallecompra.php 7
+ERROR - 2024-01-03 16:06:32 --> Severity: Warning --> Undefined array key "id" C:\wamp64\www\ejemplo\application\views\detallecompra.php 7
+ERROR - 2024-01-03 16:06:33 --> Severity: Warning --> Undefined array key "id" C:\wamp64\www\ejemplo\application\views\detallecompra.php 7
+ERROR - 2024-01-03 16:06:33 --> Severity: Warning --> Undefined array key "id" C:\wamp64\www\ejemplo\application\views\detallecompra.php 7
+ERROR - 2024-01-03 16:06:34 --> Severity: Warning --> Undefined array key "id" C:\wamp64\www\ejemplo\application\views\detallecompra.php 7
+ERROR - 2024-01-03 16:07:15 --> Severity: Warning --> Array to string conversion C:\wamp64\www\ejemplo\application\views\detallecompra.php 1
+ERROR - 2024-01-03 16:07:22 --> Severity: Warning --> Array to string conversion C:\wamp64\www\ejemplo\application\views\detallecompra.php 1
+ERROR - 2024-01-03 16:07:22 --> Severity: Warning --> Array to string conversion C:\wamp64\www\ejemplo\application\views\detallecompra.php 1
+ERROR - 2024-01-03 16:07:22 --> Severity: Warning --> Array to string conversion C:\wamp64\www\ejemplo\application\views\detallecompra.php 1
+ERROR - 2024-01-03 16:07:23 --> Severity: Warning --> Array to string conversion C:\wamp64\www\ejemplo\application\views\detallecompra.php 1
+ERROR - 2024-01-03 16:07:23 --> Severity: Warning --> Array to string conversion C:\wamp64\www\ejemplo\application\views\detallecompra.php 1
+ERROR - 2024-01-03 16:08:59 --> Severity: error --> Exception: syntax error, unexpected double-quoted string " ", expecting ")" C:\wamp64\www\ejemplo\application\views\detallecompra.php 9
+ERROR - 2024-01-03 16:09:03 --> Severity: error --> Exception: syntax error, unexpected double-quoted string " ", expecting ")" C:\wamp64\www\ejemplo\application\views\detallecompra.php 9
+ERROR - 2024-01-03 16:10:48 --> Severity: error --> Exception: syntax error, unexpected token "<" C:\wamp64\www\ejemplo\application\views\detallecompra.php 10
+ERROR - 2024-01-03 16:10:54 --> Severity: error --> Exception: syntax error, unexpected token "<" C:\wamp64\www\ejemplo\application\views\detallecompra.php 10
+ERROR - 2024-01-03 16:29:49 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 24
+ERROR - 2024-01-03 16:35:13 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 23
+ERROR - 2024-01-03 16:35:44 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 23
+ERROR - 2024-01-03 16:36:37 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 23
+ERROR - 2024-01-03 16:38:28 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 23
+ERROR - 2024-01-03 16:39:08 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 23
+ERROR - 2024-01-03 16:40:25 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 25
+ERROR - 2024-01-03 16:41:06 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 25
+ERROR - 2024-01-03 16:41:23 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 25
+ERROR - 2024-01-03 16:42:13 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 25
+ERROR - 2024-01-03 16:42:38 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 25
+ERROR - 2024-01-03 16:43:05 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 25
+ERROR - 2024-01-03 16:44:02 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 25
+ERROR - 2024-01-03 16:45:46 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 16:46:49 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 16:47:09 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 16:50:00 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 16:51:00 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 16:52:10 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 16:52:29 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 16:52:45 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 16:52:59 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 16:53:40 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 16:54:00 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 16:58:50 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 23
+ERROR - 2024-01-03 16:58:54 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 32
+ERROR - 2024-01-03 16:58:54 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 32
+ERROR - 2024-01-03 16:58:54 --> Severity: Warning --> Trying to access array offset on value of type null C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 32
+ERROR - 2024-01-03 16:58:54 --> Severity: Warning --> Trying to access array offset on value of type null C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 32
+ERROR - 2024-01-03 16:58:54 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 33
+ERROR - 2024-01-03 16:58:54 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 36
+ERROR - 2024-01-03 16:58:54 --> Severity: Warning --> Undefined array key "va" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 93
+ERROR - 2024-01-03 16:58:54 --> Severity: Warning --> Undefined array key "txta" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 97
+ERROR - 2024-01-03 16:58:54 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\CssManager.php 1762
+ERROR - 2024-01-03 16:58:54 --> Severity: Warning --> Undefined array key "direction" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 242
+ERROR - 2024-01-03 16:58:54 --> Severity: Warning --> Undefined array key "cellLineHeight" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 258
+ERROR - 2024-01-03 16:58:54 --> Severity: Warning --> Undefined array key "cellLineStackingStrategy" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 263
+ERROR - 2024-01-03 16:58:54 --> Severity: Warning --> Undefined array key "cellLineStackingShift" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 268
+ERROR - 2024-01-03 16:58:54 --> Severity: Warning --> Undefined array key "borders_separate" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 340
+ERROR - 2024-01-03 16:58:54 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 413
+ERROR - 2024-01-03 16:58:54 --> Severity: error --> Exception: Data has already been sent to output, unable to output PDF file C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Mpdf.php 9605
+ERROR - 2024-01-03 16:58:54 --> Severity: Warning --> Cannot modify header information - headers already sent by (output started at C:\wamp64\www\ejemplo\system\core\Exceptions.php:272) C:\wamp64\www\ejemplo\system\core\Common.php 571
+ERROR - 2024-01-03 17:00:46 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 17:00:50 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 32
+ERROR - 2024-01-03 17:00:50 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 32
+ERROR - 2024-01-03 17:00:50 --> Severity: Warning --> Trying to access array offset on value of type null C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 32
+ERROR - 2024-01-03 17:00:50 --> Severity: Warning --> Trying to access array offset on value of type null C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 32
+ERROR - 2024-01-03 17:00:50 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 33
+ERROR - 2024-01-03 17:00:50 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 36
+ERROR - 2024-01-03 17:00:50 --> Severity: Warning --> Undefined array key "va" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 93
+ERROR - 2024-01-03 17:00:50 --> Severity: Warning --> Undefined array key "txta" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 97
+ERROR - 2024-01-03 17:00:50 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\CssManager.php 1762
+ERROR - 2024-01-03 17:00:50 --> Severity: Warning --> Undefined array key "direction" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 242
+ERROR - 2024-01-03 17:00:50 --> Severity: Warning --> Undefined array key "cellLineHeight" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 258
+ERROR - 2024-01-03 17:00:50 --> Severity: Warning --> Undefined array key "cellLineStackingStrategy" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 263
+ERROR - 2024-01-03 17:00:50 --> Severity: Warning --> Undefined array key "cellLineStackingShift" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 268
+ERROR - 2024-01-03 17:00:50 --> Severity: Warning --> Undefined array key "borders_separate" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 340
+ERROR - 2024-01-03 17:00:50 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 413
+ERROR - 2024-01-03 17:00:50 --> Severity: error --> Exception: Data has already been sent to output, unable to output PDF file C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Mpdf.php 9605
+ERROR - 2024-01-03 17:00:50 --> Severity: Warning --> Cannot modify header information - headers already sent by (output started at C:\wamp64\www\ejemplo\system\core\Exceptions.php:272) C:\wamp64\www\ejemplo\system\core\Common.php 571
+ERROR - 2024-01-03 17:01:28 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 17:01:31 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 32
+ERROR - 2024-01-03 17:01:31 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 32
+ERROR - 2024-01-03 17:01:31 --> Severity: Warning --> Trying to access array offset on value of type null C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 32
+ERROR - 2024-01-03 17:01:31 --> Severity: Warning --> Trying to access array offset on value of type null C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 32
+ERROR - 2024-01-03 17:01:31 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 33
+ERROR - 2024-01-03 17:01:31 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 36
+ERROR - 2024-01-03 17:01:31 --> Severity: Warning --> Undefined array key "va" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 93
+ERROR - 2024-01-03 17:01:31 --> Severity: Warning --> Undefined array key "txta" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 97
+ERROR - 2024-01-03 17:01:31 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\CssManager.php 1762
+ERROR - 2024-01-03 17:01:31 --> Severity: Warning --> Undefined array key "direction" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 242
+ERROR - 2024-01-03 17:01:31 --> Severity: Warning --> Undefined array key "cellLineHeight" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 258
+ERROR - 2024-01-03 17:01:31 --> Severity: Warning --> Undefined array key "cellLineStackingStrategy" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 263
+ERROR - 2024-01-03 17:01:31 --> Severity: Warning --> Undefined array key "cellLineStackingShift" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 268
+ERROR - 2024-01-03 17:01:31 --> Severity: Warning --> Undefined array key "borders_separate" C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 340
+ERROR - 2024-01-03 17:01:31 --> Severity: Warning --> Undefined array key 0 C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Tag\Td.php 413
+ERROR - 2024-01-03 17:01:31 --> Severity: error --> Exception: Data has already been sent to output, unable to output PDF file C:\wamp64\www\ejemplo\public\vendor\mpdf\mpdf\src\Mpdf.php 9605
+ERROR - 2024-01-03 17:01:31 --> Severity: Warning --> Cannot modify header information - headers already sent by (output started at C:\wamp64\www\ejemplo\system\core\Exceptions.php:272) C:\wamp64\www\ejemplo\system\core\Common.php 571
+ERROR - 2024-01-03 17:02:12 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 17:02:52 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 23
+ERROR - 2024-01-03 17:03:29 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 23
+ERROR - 2024-01-03 17:04:05 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 23
+ERROR - 2024-01-03 17:04:24 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 17:07:01 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 17:07:42 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 17:09:25 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22

@@ -1,12 +1,11 @@
 
-<?php print_r($encabezado) ?>
-
+<div class="container ">
 <form action="<?php echo base_url() ?>/admin/ventas/actualizarcarrito" id="formulario" method="post">
     <table class="table  mt-2 ">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Cliente</th>
+                <th scope="col">No. Recibo</th>
+                <!-- <th scope="col">Cliente</th> -->
                 <th scope="col">Fecha   </th>
                 <th scope="col">Direccion</th>
                 <th scope="col">Telefono</th>
@@ -20,9 +19,9 @@
                     <th>
                         <?php echo $fila['id_encabezado']; ?>
                     </th>
-                    <th>
+                    <!-- <th>
                         <?php echo $fila['nombre'].' '.$fila['apellido']; ?>
-                    </th>
+                    </th> -->
                     <th>
                         <?php echo date("d/m/Y", strtotime($fila['fecha'])); ?>
                     </th>
@@ -33,7 +32,7 @@
                         <?php echo $fila['telefono']; ?>
                     </th>
                     <th>
-                        <?php echo $fila['total']; ?>
+                        <?php echo "Q. ".number_format($fila['total'],2,".",","); ?>
                     </th>
                     <th>
                         <a href="" style="font-size: 23px; line-height: 0px;"><i class="bi bi-trash3-fill"></i></a>
@@ -43,4 +42,5 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+</form>
 </form>
