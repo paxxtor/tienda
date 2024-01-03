@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <body>
+  
     <table style="width:100%;">
         <tr>
             <td align="center">
@@ -115,7 +116,7 @@
         <thead>
             <tr>
                 <th  style="font-size:7px;padding-bottom: 5px;  font-family:poppins" scope="col">CANT </th>
-                <th align="start" style="font-size:7px;padding-bottom: 5px;font-family:poppins" scope="col">CONCEPTO</th>
+                <th align="start" style="font-size:7px;padding-bottom: 5px;font-family:poppins; width:50%;">CONCEPTO</th>
                 <th  style="font-size:7px;padding-bottom: 5px; padding-rigth: 20px;font-family:poppins" scope="col">P.U.</th>
                 <th  style="font-size:7px;padding-bottom: 5px;font-family:poppins" scope="col">IMPORTE</th>
             </tr>
@@ -126,8 +127,8 @@
                     <th style="font-size: 6px;font-family:poppins;color:#444446;">
                         <?php echo $fila['cantidad']; ?>
                     </th>
-                    <th align="start" style="font-size: 6px;font-family:poppins;color:#444446;">
-                    <?php echo $fila['nombre']; ?>
+                    <th align="start"  style="font-size: 6px;font-family:poppins;color:#444446;">
+                    <?php echo $fila['nombre'];  ?>
                     </th>
                     <th style="font-size: 6px;font-family:poppins;color:#444446;">Q.
                         <?php echo number_format($fila['precio'], 2, ".", ","); ?>
@@ -150,7 +151,7 @@
         <tr>
         <td align="center" style="font-size: 8px;padding-bottom: 5px;font-family:poppins">
                 <p>Total: <b style="color:#444446;">
-                <?php echo number_format($encabezado[0]['total'],1,".",",");?>
+                <?php echo "Q. ".number_format($encabezado[0]['total'],1,".",",");?>
                     </b></p>
             </td>
         </tr>

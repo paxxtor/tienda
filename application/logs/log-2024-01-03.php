@@ -240,3 +240,13 @@ ERROR - 2024-01-03 17:04:24 --> Severity: Warning --> Undefined variable $imei C
 ERROR - 2024-01-03 17:07:01 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
 ERROR - 2024-01-03 17:07:42 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
 ERROR - 2024-01-03 17:09:25 --> Severity: Warning --> Undefined variable $imei C:\wamp64\www\ejemplo\application\views\recibo.php 22
+ERROR - 2024-01-03 18:57:16 --> Severity: error --> Exception: Call to a member function num_rows() on array C:\wamp64\www\ejemplo\application\views\recibo.php 4
+ERROR - 2024-01-03 18:57:24 --> Severity: Warning --> Attempt to read property "num_rows" on array C:\wamp64\www\ejemplo\application\views\recibo.php 4
+ERROR - 2024-01-03 18:57:54 --> Severity: error --> Exception: Call to a member function num_rows() on array C:\wamp64\www\ejemplo\application\views\recibo.php 4
+ERROR - 2024-01-03 20:11:52 --> Severity: Warning --> Array to string conversion C:\wamp64\www\ejemplo\application\views\recibo.php 4
+ERROR - 2024-01-03 20:37:35 --> Severity: Warning --> Undefined variable $fila C:\wamp64\www\ejemplo\application\controllers\Admin.php 421
+ERROR - 2024-01-03 20:37:35 --> Severity: Warning --> Trying to access array offset on value of type null C:\wamp64\www\ejemplo\application\controllers\Admin.php 421
+ERROR - 2024-01-03 20:37:35 --> Severity: Warning --> Undefined variable $fila C:\wamp64\www\ejemplo\application\controllers\Admin.php 421
+ERROR - 2024-01-03 20:37:35 --> Severity: Warning --> Trying to access array offset on value of type null C:\wamp64\www\ejemplo\application\controllers\Admin.php 421
+ERROR - 2024-01-03 20:37:35 --> Severity: Warning --> Undefined variable $fila C:\wamp64\www\ejemplo\application\controllers\Admin.php 421
+ERROR - 2024-01-03 20:37:35 --> Severity: Warning --> Trying to access array offset on value of type null C:\wamp64\www\ejemplo\application\controllers\Admin.php 421
