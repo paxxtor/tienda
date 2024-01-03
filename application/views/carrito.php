@@ -55,14 +55,14 @@
     <p class="font-weight-bold h4 text-danger">Total: Q.
         <?php echo number_format($this->cart->total(), 2, ".", ","); ?>
     </p>
-    <button type="button" class="btn btn-primary" onclick="enviar();"><i class="bi bi-arrow-right"></i>&nbsp;Continuar</button>
+    <button type="button" class="btn btn-primary" onclick="enviarcompra();"><i class="bi bi-arrow-right"></i>&nbsp;Continuar</button>
     <button type="submit" class="btn btn-success" onclick="return confirm('Actualizar?')"
         href="<?php echo base_url(); ?>admin/ventas/eliminarcarrito"><i
             class="bi bi-arrow-clockwise"></i>&nbsp;Actualizar</button>
 </form>
 
 <script>
-    function enviar() {
+    function enviarcompra() {
         let datos = document.getElementById("formulario");
         let form = new FormData(datos);
         $.ajax({
@@ -72,7 +72,6 @@
             processData: false,
             contentType:false,
             success:function(data){
-                // console.log(data);
                 if(data == "200")
                 {
                     window.location = "<?php echo base_url(); ?>admin/ventas/mostrar_carrito";

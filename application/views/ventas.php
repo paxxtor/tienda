@@ -1,6 +1,5 @@
 <div class="container mb-1 d-flex justify-content-between align-items-center ">
   <h1>productos</h1>
-  <a class="btn btn-success " href="<?php echo base_url()?>admin/ventas/mostrar_carrito"><i class="bi bi-bag-fill"></i>&nbsp; Mostrar Carrito</a>
 </div>
 <div class="container d-flex flex-wrap justify-content-between">
   <?php foreach ($listaproductos as $row): ?>

@@ -36,6 +36,24 @@ function btnreenviocodigo(){
 //funciones usuario
 function enviar() {
 	let datos = document.getElementById("formulario");
+	var email = $('#emailusuario').val();
+	var clave = $('#claveusuario').val();
+	if(email.length == 0){
+		Swal.fire({
+			title: "Se requiere correo",
+			text: "El correo es obligatorio",
+			icon: "error",
+		  });
+		return;
+	}
+	else if(clave.length == 0) {
+		Swal.fire({
+			title: "Se requiere contraseña",
+			text: "La contraseña es obligatoria",
+			icon: "error",
+		  });
+		return;
+	}
 	let form = new FormData(datos);
 	$.ajax({
 		type: "POST",
@@ -50,22 +68,65 @@ function enviar() {
 	});
 }
 
+function validaremail(email){
+	var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
+	if(!pattern.test(email))
+	{
+	return false;
+	}
+	return true;
+}
+
 //funciones usuario
 function enviarregistro() {
 	let datos = document.getElementById("formregistro");
 	let form = new FormData(datos);
-	$.ajax({
-		type: "POST",
-		url: base_url + "login/registrar/guardar",
-		data: form,
-		processData: false,
-		contentType: false,
-		success: function (data) {
-			console.log(data);
-			if(data == "102") window.location.href = base_url + "login/validarcuenta";
-		},
-	});
+	if(validaremail($('#correoregistro').val()))
+	{
+		$.ajax({
+			type: "POST",
+			url: base_url + "login/registrar/guardar",
+			data: form,
+			processData: false,
+			contentType: false,
+			success: function (data) {
+				console.log(data);
+				if(data == "102") {
+					sessionStorage.setItem("alerta", "2");
+					window.location.href = base_url + "login/validarcuenta";}
+				if(data == "vacios"){
+					Swal.fire({
+						title: "Campos Vacios",
+						text: "Debe de llenar todos los campos",
+						icon: "warning",
+					  });
+				}
+			},
+		});
+	}
+	else{
+		Swal.fire({
+			title: "Correo invalido",
+			text: "Ingrese un correo valido",
+			icon: "error",
+		  });
+	}
+
 }
+
+
+// function validarEmail(elemento){
+// 	console.log(elemento);
+// 	var texto = document.getElementById(elemento.id).value;
+// 	var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+	
+// 	if (!regex.test(texto)) {
+// 		document.getElementById("resultado").innerHTML = "Correo invalido";
+// 	} else {
+// 	  document.getElementById("resultado").innerHTML = "";
+// 	}
+  
+//   }
 
 
 

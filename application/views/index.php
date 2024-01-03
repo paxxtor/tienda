@@ -6,9 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title><?php echo $title;?></title>
 	</head>
-	<body class="distaciaaltura">
-		<div style="height: 56px"></div>
-		<div class="login-color-bg fixed-top">
+	<body>
+		<div class="login-color-bg sticky-top">
 			<nav class="navbar container navbar-expand-lg" data-bs-theme="dark">
 				<div class="container-fluid">
 					<a class="navbar-brand" href="<?= base_url();?>">Tienda</a>

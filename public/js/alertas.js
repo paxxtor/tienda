@@ -6,7 +6,6 @@ function login(valor = "") {
       window.location.href = base_url + "productos";
       break;
     case "201":
-      console.log("No funciona");
       Swal.fire({
         title: "Alerta",
         text: "Su cuenta ha sido desactivada",

@@ -92,8 +92,10 @@ class Login extends CI_Controller
 		}
 	}
 
+
 	function registrar($param1 = '')
 	{
+		
 		switch ($param1) {
 			case '':
 				if ($this->session->userdata('nivel') > 0) {
@@ -104,24 +106,35 @@ class Login extends CI_Controller
 				$this->load->view('index',$data);
 				break;
 			case 'guardar':
+				$vrnombre = $this->input->post('nombre');
+				$vrapellido = $this->input->post('apellido');
+				$vrtelefono = $this->input->post('telefono');
+				$vrnit = $this->input->post('nit');
+				$vrcorreo = $this->input->post('correo');
+				$vrclave = $this->input->post('clave');
+				$vrdireccion = $this->input->post('direccion');
+				if($vrnombre != '' && $vrapellido != '' && $vrtelefono != '' && $vrnit != '' && $vrcorreo != '' && $vrclave != '' && $vrdireccion != '')
+				{
 				$correo = $this->db->get_where('clientes', array('correo' => $this->input->post('correo')))->num_rows();
 				if ($correo == 0) {
-					$data['nombre'] = $this->input->post('nombre');
-					$data['apellido'] = $this->input->post('apellido');
-					$data['telefono'] = $this->input->post('telefono');
-					$data['nit'] = $this->input->post('nit');
-					$data['correo'] = $this->input->post('correo');
-					$data['clave'] = sha1($this->input->post('clave'));
-					$data['direccion'] = $this->input->post('direccion');
+					$data['nombre'] = $vrnombre;
+					$data['apellido'] = $vrapellido;
+					$data['telefono'] = $vrtelefono;
+					$data['nit'] = $vrnit;
+					$data['correo'] = $vrcorreo;
+					$data['clave'] = sha1($vrclave);
+					$data['direccion'] = $vrdireccion;
 					$data['estado'] = 3;
 					$this->db->insert('clientes', $data);
-					$this->enviarcodigo($data['correo']);
-					break;
-				} else {
-					$this->session->set_flashdata("Error", "1");
-					redirect(base_url() . 'login/registrar', 'refresh');
-				}
-		}
+					$this->enviarcodigo($data['correo']);}
+				    else{
+						$this->session->set_flashdata("Error", "1");
+						redirect(base_url() . 'login/registrar', 'refresh');
+					}
+				}else{echo 'vacios';}
+
+				break;
+			}
 	}
 
 	function generate_string($input, $strength = 8)
@@ -154,7 +167,6 @@ class Login extends CI_Controller
 		$response = curl_exec($curl);
 		curl_close($curl);
 	}
-
 	function enviarcodigo($correo = '')
 	{
 		if ($correo == '') {
@@ -175,12 +187,11 @@ class Login extends CI_Controller
 			$usuario = $this->db->get_where('clientes', array('correo' => $correo))->row_array();
 			$body = 'Hola ' . $usuario['nombre'] . ', este es tu código de activación para tu cuenta: ' . $usuario['activacion'];
 			$this->submitWa($usuario['telefono'], $body);
-			$this->session->set_tempdata('verificarcodigo', $codigo, 15);
-			$this->session->set_tempdata('verificarcorreo', $correo, 15);
+			$this->session->set_tempdata('verificarcodigo', $codigo, 25);
+			$this->session->set_tempdata('verificarcorreo', $correo, 25);
 			echo '102';
 		}
 	}
-
 	function validarcuenta($param1 = '')
 	{
 		if ($this->session->tempdata('verificarcorreo') != '') {

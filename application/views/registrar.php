@@ -86,7 +86,9 @@
 				</div>
 				<input
 					class="form-control bg-light"
-					type="email" name="correo"
+					type="email"
+					name="correo"
+					id="correoregistro"
 					placeholder="Correo"
 					required
 				/>

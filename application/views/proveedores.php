@@ -31,15 +31,15 @@
           <?php
           if ($row['estado'] == 1) :
           ?>
-            <span class="badge badge-success">Activo</span>
+            <span class="badge rounded-pill text-bg-success">Activo</span>
           <?php
           elseif ($row['estado'] == 0) :
           ?>
-            <span class="badge badge-warning">Inactivo</span>
+            <span class="badge rounded-pill text-bg-warning">Inactivo</span>
           <?php
           else :
           ?>
-            <span class="badge badge-danger">Eliminado</span>
+            <span class="badge rounded-pill text-bg-danger">Eliminado</span>
           <?php endif; ?>
         </td>
         <td>
@@ -47,13 +47,13 @@
           if ($row['estado'] == 1) :
           ?>
             <a href="<?php echo base_url(); ?>admin/proveedores/update/<?php echo $row['id_proveedor']; ?>" style=" font-size: 24px;" ><i class="bi bi-pencil-square"></i></a>
-            <a href="<?php echo base_url() ?>admin/proveedores/eliminar/<?php echo $row['id_proveedor']; ?>" class="text-danger fs-1" style=" font-size: 24px;" onclick="return confirm('Eliminar Proveedor ¡Esa acción no se puede deshacer!')"><i class="bi bi-x-circle"></i></a>
+            <a href="<?php echo base_url() ?>admin/proveedores/eliminar/<?php echo $row['id_proveedor']; ?>" class="text-danger" style=" font-size: 24px;" onclick="return confirm('Eliminar Proveedor ¡Esa acción no se puede deshacer!')"><i class="bi bi-x-circle"></i></a>
             <a href="<?php echo base_url() ?>admin/proveedores/desactivar/<?php echo $row['id_proveedor']; ?>" class="text-success" style=" font-size: 30px;" onclick="return confirm('Desactivar Proveedor')"><i class="bi bi-toggle2-on"></i></a>
           <?php
           elseif ($row['estado'] == 0) :
           ?>
             <a href="<?php echo base_url(); ?>admin/proveedores/update/<?php echo $row['id_proveedor'];  ?>" style=" font-size: 24px;" ><i class="bi bi-pencil-square"></i></a>
-            <a href="<?php echo base_url() ?>admin/proveedores/eliminar/<?php echo $row['id_proveedor']; ?>" class="text-danger fs-1" style=" font-size: 24px;" onclick="return confirm('Eliminar Proveedor ¡Esa acción no se puede deshacer!')"><i class="bi bi-x-circle"></i></a>
+            <a href="<?php echo base_url() ?>admin/proveedores/eliminar/<?php echo $row['id_proveedor']; ?>" class="text-danger" style=" font-size: 24px;" onclick="return confirm('Eliminar Proveedor ¡Esa acción no se puede deshacer!')"><i class="bi bi-x-circle"></i></a>
             <a href="<?php echo base_url() ?>admin/proveedores/activar/<?php echo $row['id_proveedor']; ?>" class="text-warning" style=" font-size: 30px;" onclick="return confirm('Activar Proveedor')"><i class="bi bi-toggle2-off"></i></a>
           <?php
           else :

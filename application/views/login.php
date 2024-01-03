@@ -1,5 +1,5 @@
 <div
-	class="login-color-bg d-flex justify-content-center align-items-center vh-100 altura"
+	class="login-color-bg d-flex justify-content-center align-items-center vh-100"
 >
 	<div
 		class="bg-white p-5 rounded-5 text-secondary-emphasis"
@@ -38,6 +38,7 @@
 				<input
 					class="form-control bg-light"
 					type="email"
+					id="emailusuario"
 					placeholder="Correo"
 					name='correo'
 					required
@@ -49,12 +50,13 @@
 						src="<?php echo base_url();?>public/assets/password-icon.svg"
 						alt="password-icon"
 						style="height: 1rem"
-					/>
-				</div>
-				<input
+						/>
+					</div>
+					<input
 					class="form-control bg-light"
 					type="password"
 					placeholder="Contraseña"
+					id="claveusuario"
 					name='clave'
 					required
 				/>

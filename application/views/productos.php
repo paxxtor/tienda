@@ -1,4 +1,3 @@
-<a href="<?php echo base_url(); ?>admin" class="btn btn-danger">Regresar</a>
 <a href="#" data-bs-toggle="modal" data-bs-target="#registrarProducto" class="btn btn-success ">Registrar Producto</a>
 <a href="#" data-bs-toggle="modal" data-bs-target="#registrarcategoria" class="btn btn-secondary ">Agregar categoria</a>
 
@@ -30,15 +29,15 @@
                 <td><?php echo $row['precioventa'] ?></td>
                 <td><?php echo $row['preciocosto'] ?></td>
                 <td><?php echo $row['nombreempresa'] ?></td>
-                <td><?php if ($row['cantidad'] >= 10) : ?><p class="badge badge-success">Hay Stock</p>
-                    <?php elseif ($row['cantidad'] > 0 && $row['cantidad'] < 10) : ?><p class="badge badge-warning">Está por agotarse</p>
-                    <?php elseif ($row['cantidad'] == 0) : ?><p class="badge badge-danger ">No hay stock</p>
+                <td><?php if ($row['cantidad'] >= 10) : ?><p class="badge rounded-pill text-bg-success">Hay Stock</p>
+                    <?php elseif ($row['cantidad'] > 0 && $row['cantidad'] < 10) : ?><p class="badge rounded-pill text-bg-warning">Está por agotarse</p>
+                    <?php elseif ($row['cantidad'] == 0) : ?><p class="badge rounded-pill text-bg-danger ">No hay stock</p>
                     <?php else : ?> <p>Error al leer la cantidad</p>
                     <?php endif; ?></td>
                 <td>
-                    <?php if ($row['estado'] == 1) : ?><p class="badge badge-success">Activo</p>
-                    <?php elseif ($row['estado'] == 0) : ?><p class="badge badge-warning">Inactivo</p>
-                    <?php else : ?> <p class="badge badge-danger">Eliminado</p>
+                    <?php if ($row['estado'] == 1) : ?><p class="badge rounded-pill text-bg-success">Activo</p>
+                    <?php elseif ($row['estado'] == 0) : ?><p class="badge rounded-pill text-bg-warning">Inactivo</p>
+                    <?php else : ?> <p class="badge rounded-pill text-bg-danger">Eliminado</p>
                     <?php endif; ?>
                 </td>
                 <td>
@@ -46,13 +45,13 @@
                     if ($row['estado'] == 1) :
                     ?>
                         <a href="<?php echo base_url(); ?>admin/producto/update/<?php echo $row['id_producto']; ?> " style=" font-size: 24px;" ><i class="bi bi-pencil-square"></i></a>
-                        <a href="<?php echo base_url() ?>admin/producto/eliminar/<?php echo $row['id_producto']; ?>" class="text-danger fs-1" style=" font-size: 24px;" onclick="return confirm('Eliminar Producto ¡Esa acción no se puede deshacer!')"><i class="bi bi-x-circle"></i></a>
+                        <a href="<?php echo base_url() ?>admin/producto/eliminar/<?php echo $row['id_producto']; ?>" class="text-danger " style=" font-size: 24px;" onclick="return confirm('Eliminar Producto ¡Esa acción no se puede deshacer!')"><i class="bi bi-x-circle"></i></a>
                         <a href="<?php echo base_url() ?>admin/producto/desactivar/<?php echo $row['id_producto']; ?>" class="text-success" style=" font-size: 30px;"  onclick="return confirm('Desactivar Producto')"><i class="bi bi-toggle2-on"></i></a>
                     <?php
                     elseif ($row['estado'] == 0) :
                     ?>
                         <a href="<?php echo base_url(); ?>admin/producto/update/<?php echo $row['id_producto'];  ?>"  style=" font-size: 24px;" ><i class="bi bi-pencil-square"></i></a>
-                        <a href="<?php echo base_url() ?>admin/producto/eliminar/<?php echo $row['id_producto']; ?>" class="text-danger fs-1" style=" font-size: 24px;"  onclick="return confirm('Eliminar Producto ¡Esa acción no se puede deshacer!')"><i class="bi bi-x-circle"></i></a>
+                        <a href="<?php echo base_url() ?>admin/producto/eliminar/<?php echo $row['id_producto']; ?>" class="text-danger" style=" font-size: 24px;"  onclick="return confirm('Eliminar Producto ¡Esa acción no se puede deshacer!')"><i class="bi bi-x-circle"></i></a>
                         <a href="<?php echo base_url() ?>admin/producto/activar/<?php echo $row['id_producto']; ?>" class="text-warning" style=" font-size: 30px;"  onclick="return confirm('Activar Producto')"><i class="bi bi-toggle2-off"></i></a>
                     <?php
                     else :
