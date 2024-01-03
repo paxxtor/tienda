@@ -416,10 +416,10 @@ class Admin extends CI_Controller
     function descargarpdf($param1 = '1') {
         $page_data['encabezado'] = $this->crud->encabezadoespecifio($param1);
         $page_data['detalle'] = $this->crud->detallecompra($param1);
-        $tamañofilas = 110;
+        $tamañofilas = 82;
         foreach($page_data['detalle'] as $row){
             $aprox = ceil(strlen($row['nombre'])/32);
-            $tamañofilas += $aprox*3;
+            $tamañofilas += $aprox*2;
         }
 
         $data = array(
@@ -432,7 +432,7 @@ class Admin extends CI_Controller
         // $this->load->library('M_pdf');
         $mpdf = new \Mpdf\Mpdf([
             "orientation"=> "L",
-            "format"=>[$tamañofilas,90],
+            "format"=>[$tamañofilas,45],
             "margin_left"=> 1,
             "margin_right"=>1,
             "margin_top"=>8,

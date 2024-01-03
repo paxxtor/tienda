@@ -15,7 +15,7 @@
         <table class="table  mt-2 ">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Producto</th>
+                    <th scope="col" style="width:65%;">Producto</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Cantidad</th>
                     <th scope="col">Subtotal</th>
