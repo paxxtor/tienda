@@ -70,3 +70,15 @@ ERROR - 2024-01-04 20:53:02 --> Severity: Warning --> Undefined variable $data C
 ERROR - 2024-01-04 20:53:05 --> Severity: Warning --> Undefined variable $data C:\wamp64\www\ejemplo\application\controllers\Admin.php 393
 ERROR - 2024-01-04 20:53:21 --> Severity: Warning --> Undefined variable $data C:\wamp64\www\ejemplo\application\controllers\Admin.php 390
 ERROR - 2024-01-04 21:15:53 --> Query error: Unknown column 'id_proveedor' in 'field list' - Invalid query: INSERT INTO `detalleventa` (`id_proveedor`, `id_producto`, `cantidad`, `precio`, `subtotal`) VALUES (14, '1', 3, 700, 2100)
+ERROR - 2024-01-04 21:41:57 --> Severity: Warning --> Undefined array key "id_persona" C:\wamp64\www\ejemplo\application\views\historial.php 18
+ERROR - 2024-01-04 21:41:57 --> Severity: Warning --> Undefined array key "id_persona" C:\wamp64\www\ejemplo\application\views\historial.php 18
+ERROR - 2024-01-04 21:41:57 --> Severity: Warning --> Undefined array key "id_persona" C:\wamp64\www\ejemplo\application\views\historial.php 18
+ERROR - 2024-01-04 21:41:57 --> Severity: Warning --> Undefined array key "id_persona" C:\wamp64\www\ejemplo\application\views\historial.php 18
+ERROR - 2024-01-04 21:41:57 --> Severity: Warning --> Undefined array key "id_persona" C:\wamp64\www\ejemplo\application\views\historial.php 18
+ERROR - 2024-01-04 21:41:57 --> Severity: Warning --> Undefined array key "id_persona" C:\wamp64\www\ejemplo\application\views\historial.php 18
+ERROR - 2024-01-04 21:41:57 --> Severity: Warning --> Undefined array key "id_persona" C:\wamp64\www\ejemplo\application\views\historial.php 18
+ERROR - 2024-01-04 21:41:57 --> Severity: Warning --> Undefined array key "id_persona" C:\wamp64\www\ejemplo\application\views\historial.php 18
+ERROR - 2024-01-04 21:41:57 --> Severity: Warning --> Undefined array key "id_persona" C:\wamp64\www\ejemplo\application\views\historial.php 18
+ERROR - 2024-01-04 21:41:57 --> Severity: Warning --> Undefined array key "id_persona" C:\wamp64\www\ejemplo\application\views\historial.php 18
+ERROR - 2024-01-04 21:41:57 --> Severity: Warning --> Undefined array key "id_persona" C:\wamp64\www\ejemplo\application\views\historial.php 18
+ERROR - 2024-01-04 21:41:57 --> Severity: Warning --> Undefined array key "id_persona" C:\wamp64\www\ejemplo\application\views\historial.php 18

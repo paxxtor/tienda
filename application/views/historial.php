@@ -15,6 +15,7 @@
         </thead>
         <tbody>
             <?php foreach ($encabezado as $fila): ?>
+                <?php if($fila['id_persona']==$this->session->userdata('id_cliente')): ?>
                 <tr>
                     <th>
                         <?php echo $fila['id_encabezado']; ?>
@@ -39,6 +40,7 @@
                         <a href="<?php echo base_url();?>admin/detallecompra/<?php echo $fila['id_encabezado'];?>" style="font-size: 23px; line-height: 0px;"><i class="bi bi-arrow-up-right"></i></a>
                     </th>
                 </tr>
+                <?php endif; ?>
             <?php endforeach; ?>
         </tbody>
     </table>
