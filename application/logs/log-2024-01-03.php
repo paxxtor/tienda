@@ -250,3 +250,52 @@ ERROR - 2024-01-03 20:37:35 --> Severity: Warning --> Undefined variable $fila C
 ERROR - 2024-01-03 20:37:35 --> Severity: Warning --> Trying to access array offset on value of type null C:\wamp64\www\ejemplo\application\controllers\Admin.php 421
 ERROR - 2024-01-03 20:37:35 --> Severity: Warning --> Undefined variable $fila C:\wamp64\www\ejemplo\application\controllers\Admin.php 421
 ERROR - 2024-01-03 20:37:35 --> Severity: Warning --> Trying to access array offset on value of type null C:\wamp64\www\ejemplo\application\controllers\Admin.php 421
+ERROR - 2024-01-03 22:24:58 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:24:59 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:24:59 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:24:59 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:24:59 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:26:41 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:26:41 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:26:42 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:26:42 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:26:42 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:28:03 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:28:34 --> Severity: error --> Exception: syntax error, unexpected variable "$this" C:\wamp64\www\ejemplo\application\controllers\Admin.php 477
+ERROR - 2024-01-03 22:28:35 --> Severity: error --> Exception: syntax error, unexpected variable "$this" C:\wamp64\www\ejemplo\application\controllers\Admin.php 477
+ERROR - 2024-01-03 22:29:50 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:30:01 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:31:19 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:31:35 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:31:38 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:35:55 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:37:16 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:37:30 --> 404 Page Not Found: Admin/compraDatosUsuario
+ERROR - 2024-01-03 22:38:14 --> 404 Page Not Found: Admin/comprar
+ERROR - 2024-01-03 22:38:14 --> 404 Page Not Found: Admin/comprar
+ERROR - 2024-01-03 22:40:42 --> 404 Page Not Found: Admin/procesocompra
+ERROR - 2024-01-03 22:42:59 --> 404 Page Not Found: Admin/procesocompra
+ERROR - 2024-01-03 22:43:11 --> 404 Page Not Found: Admin/procesocompra
+ERROR - 2024-01-03 22:43:46 --> 404 Page Not Found: Admin/procesocompra
+ERROR - 2024-01-03 22:43:51 --> 404 Page Not Found: Admin/procesocompra
+ERROR - 2024-01-03 22:44:12 --> 404 Page Not Found: Admin/comprar
+ERROR - 2024-01-03 22:44:40 --> 404 Page Not Found: Admin/productos
+ERROR - 2024-01-03 22:44:54 --> 404 Page Not Found: Admin/procesocompra
+ERROR - 2024-01-03 22:45:13 --> Severity: error --> Exception: syntax error, unexpected token "public", expecting end of file C:\wamp64\www\ejemplo\application\controllers\Admin.php 474
+ERROR - 2024-01-03 22:45:33 --> Severity: error --> Exception: syntax error, unexpected token "public", expecting end of file C:\wamp64\www\ejemplo\application\controllers\Admin.php 474
+ERROR - 2024-01-03 22:45:39 --> Severity: error --> Exception: syntax error, unexpected token "public", expecting end of file C:\wamp64\www\ejemplo\application\controllers\Admin.php 474
+ERROR - 2024-01-03 22:45:52 --> Severity: error --> Exception: syntax error, unexpected token "public", expecting end of file C:\wamp64\www\ejemplo\application\controllers\Admin.php 474
+ERROR - 2024-01-03 22:45:57 --> Severity: error --> Exception: syntax error, unexpected token "public", expecting end of file C:\wamp64\www\ejemplo\application\controllers\Admin.php 480
+ERROR - 2024-01-03 22:45:57 --> Severity: error --> Exception: syntax error, unexpected token "public", expecting end of file C:\wamp64\www\ejemplo\application\controllers\Admin.php 480
+ERROR - 2024-01-03 22:45:57 --> Severity: error --> Exception: syntax error, unexpected token "public", expecting end of file C:\wamp64\www\ejemplo\application\controllers\Admin.php 480
+ERROR - 2024-01-03 22:45:58 --> Severity: error --> Exception: syntax error, unexpected token "public", expecting end of file C:\wamp64\www\ejemplo\application\controllers\Admin.php 480
+ERROR - 2024-01-03 22:45:59 --> Severity: error --> Exception: syntax error, unexpected token "public", expecting end of file C:\wamp64\www\ejemplo\application\controllers\Admin.php 480
+ERROR - 2024-01-03 22:46:01 --> Severity: error --> Exception: syntax error, unexpected token "public", expecting end of file C:\wamp64\www\ejemplo\application\controllers\Admin.php 480
+ERROR - 2024-01-03 22:46:02 --> Severity: error --> Exception: syntax error, unexpected token "public", expecting end of file C:\wamp64\www\ejemplo\application\controllers\Admin.php 480
+ERROR - 2024-01-03 22:46:04 --> Severity: error --> Exception: syntax error, unexpected token "public", expecting end of file C:\wamp64\www\ejemplo\application\controllers\Admin.php 480
+ERROR - 2024-01-03 22:46:08 --> 404 Page Not Found: Admin/comprr
+ERROR - 2024-01-03 22:47:23 --> 404 Page Not Found: Procesocompra/index
+ERROR - 2024-01-03 22:47:28 --> 404 Page Not Found: Procesocompra/index
+ERROR - 2024-01-03 22:47:29 --> 404 Page Not Found: Procesocompra/index
+ERROR - 2024-01-03 22:48:13 --> 404 Page Not Found: Admin/comprar
+ERROR - 2024-01-03 22:48:35 --> 404 Page Not Found: Admin/comprar

@@ -469,4 +469,13 @@ class Admin extends CI_Controller
     //     $this->load->view('index', $page_data);
     
     // }
+ function compra(){
+	$page_data['title'] = 'Detalle de compra';
+	$page_data['page_name']= 'compra';
+	$this->load->view('index',$page_data);
+}
+
+ function procesocompra(){
+    echo '200';
+}
 }

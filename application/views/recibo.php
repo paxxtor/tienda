@@ -1,7 +1,6 @@
 <!doctype html>
 <html>
 <body>
-  
     <table style="width:100%;">
         <tr>
             <td align="center">
@@ -149,7 +148,7 @@
     </table>
     <table style="width:100%;">
         <tr>
-        <td align="center" style="font-size: 5px;padding-bottom: 5px;font-family:poppins">
+        <td align="rigth" style="font-size: 5px;padding-bottom: 5px;font-family:poppins">
                 <p>Total: <b style="color:#444446;">
                 <?php echo "Q. ".number_format($encabezado[0]['total'],1,".",",");?>
                     </b></p>

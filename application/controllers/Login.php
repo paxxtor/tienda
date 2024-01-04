@@ -41,6 +41,9 @@ class Login extends CI_Controller
 				{
 					$this->session->set_userdata('arraycliente', $query);
 					$this->session->set_userdata('nombre', $query[0]['nombre']);
+					$this->session->set_userdata('apellido', $query[0]['apellido']);
+					$this->session->set_userdata('direccion', $query[0]['direccion']);
+					$this->session->set_userdata('telefono', $query[0]['telefono']);
 					$this->session->set_userdata('correo', $correo);
 					$this->session->set_userdata('clave', $clave);
 					$this->session->set_userdata('nivel', 1);
@@ -227,5 +230,4 @@ class Login extends CI_Controller
 		redirect(base_url(),'refresh');
 	}
 }
-
 
