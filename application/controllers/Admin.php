@@ -375,16 +375,32 @@ class Admin extends CI_Controller
 
             case 'comprar':
                 if ($this->session->userdata('nivel') > 0) {
-                    foreach ($this->cart->contents() as $item) {
-                        $stock = $this->db->get_where('productos', array('id_producto' => $item['id']))->row()->cantidad;
-                        $cantidad = $item['qty'];
-                        $data['cantidad'] = $stock - $cantidad;
-                        $this->db->where('id_producto', $item['id']);
-                        $this->db->update('productos', $data);
-                    }
-                    $this->cart->destroy();
-                    echo "200";
-                    return;
+                        $encabezado['id_persona'] = $this->session->userdata('id_cliente');
+                        $encabezado['fecha'] = date('Y-m-d H:i:s');
+                        $encabezado['direccionenvio'] = $this->input->post("direccionenvio");
+                        $encabezado['notas'] = $this->input->post("notas");
+                        $encabezado['total'] = $this->cart->total();
+                        $this->db->insert('encabezado',$encabezado);
+                        $id_encabezado = $this->db->insert_id();
+
+                        foreach ($this->cart->contents() as $item) {
+                            $stock = $this->db->get_where('productos', array('id_producto' => $item['id']))->row()->cantidad;
+                            $cantidad = $item['qty'];
+                            $data['cantidad'] = $stock - $cantidad;
+                            $this->db->where('id_producto', $item['id']);
+                            $this->db->update('productos', $data);
+
+                            $producto['id_encabezado'] = $id_encabezado;
+                            $producto['id_producto'] = $item['id'];
+                            $producto['cantidad'] = $item['qty'];
+                            $producto['precio'] = $item['price'];
+                            $producto['subtotal'] = $item['subtotal'];
+                            $this->db->insert('detalleventa',$producto);
+                        }
+                        $this->cart->destroy();
+                        echo '200';
+                        // echo json_encode($producto);
+                        return;
             } else {
                 echo "404";
             }

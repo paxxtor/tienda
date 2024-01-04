@@ -40,6 +40,7 @@ class Login extends CI_Controller
 				if($query[0]['estado']==1)
 				{
 					$this->session->set_userdata('arraycliente', $query);
+					$this->session->set_userdata('id_cliente', $query[0]['id_cliente']);
 					$this->session->set_userdata('nombre', $query[0]['nombre']);
 					$this->session->set_userdata('apellido', $query[0]['apellido']);
 					$this->session->set_userdata('direccion', $query[0]['direccion']);
