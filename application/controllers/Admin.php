@@ -377,7 +377,7 @@ class Admin extends CI_Controller
                 if ($this->session->userdata('nivel') > 0) {
                     foreach ($this->cart->contents() as $item) {
                         $stock = $this->db->get_where('productos', array('id_producto' => $item['id']))->row()->cantidad;
-                        $cantidad = $this->input->post('cantidad_' . $item['rowid']);
+                        $cantidad = $item['qty'];
                         $data['cantidad'] = $stock - $cantidad;
                         $this->db->where('id_producto', $item['id']);
                         $this->db->update('productos', $data);

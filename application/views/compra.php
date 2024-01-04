@@ -1,7 +1,7 @@
 <div class=" container d-flex justify-content-center align-items-center mt-2 ">
     <div class="bg-white p-5 rounded-5 text-secondary-emphasis border border-black "
 		style="width: 25rem">
-        <form class="col-md-6 ">
+        <form class="col-md-6" id="formcomprar" method="post">
             <fieldset>
                 <legend>Datos del cliente</legend>
                 <div class="mb-3">
@@ -31,7 +31,7 @@
             <div>
                 <textarea name="" id="" cols="40" rows="5"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary mt-1 ">Comprar</button>
+            <button type="button" onclick="comprar();" class="btn btn-primary mt-1 ">Comprar</button>
         </fieldset>
     </form>
     </div>

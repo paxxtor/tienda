@@ -146,3 +146,22 @@ function enviaradmin() {
 	});
 }
 
+
+function comprar() {
+	let datos = document.getElementById("formcomprar");
+	let form = new FormData(datos);
+	$.ajax({
+		type: "POST",
+		url: base_url + "admin/ventas/comprar",
+		data: form,
+		processData: false,
+		contentType: false,
+		success: function (data) {
+			console.log(data);
+			if(data == '200'){
+				sessionStorage.setItem("confirmacioncompra", "1");
+				window.location.href = base_url;
+			}
+		},
+	});
+}

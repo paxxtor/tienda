@@ -78,3 +78,14 @@ if(sessionStorage.getItem("verificacion") == "2"){
       title: "Codigo inválido"
     });
 }
+
+if(sessionStorege.getItem("confirmacioncompra")=="1"){
+  sessionStorege.removeItem("confirmacioncompra");
+  Swal.fire({
+    position: "top-end",
+    icon: "success",
+    title: "Compra realizada con exito",
+    showConfirmButton: false,
+    timer: 2000
+    });
+}
