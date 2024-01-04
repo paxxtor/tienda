@@ -82,3 +82,6 @@ ERROR - 2024-01-04 21:41:57 --> Severity: Warning --> Undefined array key "id_pe
 ERROR - 2024-01-04 21:41:57 --> Severity: Warning --> Undefined array key "id_persona" C:\wamp64\www\ejemplo\application\views\historial.php 18
 ERROR - 2024-01-04 21:41:57 --> Severity: Warning --> Undefined array key "id_persona" C:\wamp64\www\ejemplo\application\views\historial.php 18
 ERROR - 2024-01-04 21:41:57 --> Severity: Warning --> Undefined array key "id_persona" C:\wamp64\www\ejemplo\application\views\historial.php 18
+ERROR - 2024-01-04 22:06:44 --> Severity: Warning --> Undefined array key "direccionfacturacion" C:\wamp64\www\ejemplo\application\views\recibo.php 102
+ERROR - 2024-01-04 22:08:10 --> Severity: Warning --> Undefined array key "direccionfacturacion" C:\wamp64\www\ejemplo\application\views\recibo.php 102
+ERROR - 2024-01-04 22:10:52 --> Severity: Warning --> Undefined array key "direccionfacturacion" C:\wamp64\www\ejemplo\application\views\recibo.php 102

@@ -26,10 +26,10 @@ class Crud extends CI_Model {
     }
     public function getencabezado(){
 
-        return $this->db->query('SELECT encabezado.id_encabezado,encabezado.id_persona,encabezado.fecha,encabezado.direccionenvio,encabezado.total,clientes.nombre,clientes.apellido, clientes.telefono,clientes.nit, clientes.correo FROM `encabezado` INNER JOIN clientes on clientes.id_cliente = encabezado.id_persona;')->result_array();
+        return $this->db->query('SELECT encabezado.id_encabezado,encabezado.id_persona,encabezado.fecha,encabezado.direccionenvio,encabezado.direccionfacturacion,encabezado.total,clientes.nombre,clientes.apellido, clientes.telefono,clientes.nit, clientes.correo FROM `encabezado` INNER JOIN clientes on clientes.id_cliente = encabezado.id_persona;')->result_array();
     }
     public function encabezadoespecifio($id_encabezado){
-        return $this->db->query(sprintf('SELECT encabezado.id_encabezado,encabezado.id_persona,encabezado.fecha,encabezado.direccionenvio,encabezado.total,clientes.nombre,clientes.apellido, clientes.telefono,clientes.nit, clientes.correo FROM `encabezado` INNER JOIN clientes on clientes.id_cliente = encabezado.id_persona WHERE encabezado.id_encabezado = %d;', $id_encabezado))->result_array();
+        return $this->db->query(sprintf('SELECT encabezado.id_encabezado,encabezado.id_persona,encabezado.fecha,encabezado.direccionfacturacion,encabezado.direccionenvio,encabezado.total,clientes.nombre,clientes.apellido, clientes.telefono,clientes.nit, clientes.correo FROM `encabezado` INNER JOIN clientes on clientes.id_cliente = encabezado.id_persona WHERE encabezado.id_encabezado = %d;', $id_encabezado))->result_array();
     }
     public function detallecompra($id_encabezado){
         return $this->db->query(sprintf('SELECT *,detalleventa.cantidad FROM `detalleventa` INNER JOIN productos on productos.id_producto = detalleventa.id_producto WHERE detalleventa.id_encabezado = %d;', $id_encabezado))->result_array();

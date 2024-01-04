@@ -81,7 +81,7 @@
         <tr>
             <td align="center" style="font-size: 4px;padding-bottom: 3px;font-family:poppins">
                 <p>Cliente: <b style="color:#444446;">
-                        <?php print_r($encabezado[0]['nombre'].' '.$encabezado[0]['apellido']); ?>
+                        <?php print_r(strtoupper($encabezado[0]['nombre'].' '.$encabezado[0]['apellido'])); ?>
                     </b></p>
             </td>
         </tr>
@@ -98,7 +98,16 @@
     <table style="width:100%;">
         <tr>
         <td align="center" style="font-size: 4px;padding-bottom: 3px;font-family:poppins">
-                <p>Direccion: <b style="color:#444446;">
+                <p>Direccion de Factuarción: <b style="color:#444446;">
+                <?php print_r($encabezado[0]['direccionfacturacion']); ?>
+                    </b></p>
+            </td>
+        </tr>
+    </table>
+    <table style="width:100%;">
+        <tr>
+        <td align="center" style="font-size: 4px;padding-bottom: 3px;font-family:poppins">
+                <p>Direccion de envío: <b style="color:#444446;">
                 <?php print_r($encabezado[0]['direccionenvio']); ?>
                     </b></p>
             </td>
@@ -148,7 +157,7 @@
     </table>
     <table style="width:100%;">
         <tr>
-        <td align="rigth" style="font-size: 5px;padding-bottom: 5px;font-family:poppins">
+        <td align="right" style="font-size: 5px;padding-bottom: 5px;font-family:poppins; padding-right:10px;">
                 <p>Total: <b style="color:#444446;">
                 <?php echo "Q. ".number_format($encabezado[0]['total'],1,".",",");?>
                     </b></p>

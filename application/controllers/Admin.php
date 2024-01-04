@@ -378,11 +378,12 @@ class Admin extends CI_Controller
                         $encabezado['id_persona'] = $this->session->userdata('id_cliente');
                         $encabezado['fecha'] = date('Y-m-d H:i:s');
                         $encabezado['direccionenvio'] = $this->input->post("direccionenvio");
+                        $encabezado['direccionfacturacion'] = $this->session->userdata('direccion');
                         $encabezado['notas'] = $this->input->post("notas");
                         $encabezado['total'] = $this->cart->total();
                         $this->db->insert('encabezado',$encabezado);
                         $id_encabezado = $this->db->insert_id();
-
+                        
                         foreach ($this->cart->contents() as $item) {
                             $stock = $this->db->get_where('productos', array('id_producto' => $item['id']))->row()->cantidad;
                             $cantidad = $item['qty'];
