@@ -20,7 +20,6 @@
     $this->load->model('crud');
     $resultados = $this->crud->obtener_productos($inicio, $registros);
     $paginas=ceil($cantprodu/$registros);
-    
 ?>
 <h5 class="card-title "> Resultados (<?php echo $cantprodu; ?>)</h5>
 <div class="container d-flex flex-wrap justify-content-center " >

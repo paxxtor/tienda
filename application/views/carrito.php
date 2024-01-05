@@ -72,11 +72,13 @@
             processData: false,
             contentType:false,
             success:function(data){
+                console.log(data);
                 if(data == "200")
                 {
                     window.location = "<?php echo base_url(); ?>admin/compra";
                 }if(data == "404")
                 {
+                    
                     window.location = "<?php echo base_url(); ?>";
                 }
             }

@@ -494,6 +494,8 @@ class Admin extends CI_Controller
 }
 
  function procesocompra(){
+    if(!empty($this->session->userdata('nivel')))
     echo '200';
+    else echo '404';
 }
 }
