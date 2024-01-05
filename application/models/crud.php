@@ -38,6 +38,24 @@ class Crud extends CI_Model {
         $this->db->limit($registros, $inicio);
         return $query = $this->db->get_where('productos',array('estado'=>1))->result_array();
     }
+
+
+    function getTables($table = '', $param1 = '', $param2 = '', $param3 = '')
+    {
+        $fetch_data = $this->MakeTable($table, $param1, $param2, $param3);  
+        
+        $data = $this->getArrays($table,$fetch_data,$param1, $param2, $param3);    
+       
+        $output = array(  
+            "draw"                      =>      intval($_POST["draw"]),  
+            "recordsTotal"              =>      $this->GetAllData($table,$param1, $param2, $param3),  
+            "recordsFiltered"           =>      $this->GetFilteredData($table,$param1, $param2, $param3),  
+            "data"                      =>      $data  
+        );  
+        
+        echo json_encode($output); 
+    }
+
 }
 
 

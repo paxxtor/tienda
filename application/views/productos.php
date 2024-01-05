@@ -27,8 +27,8 @@
                 <td><?php echo $row['cantidad'] ?></td>
                 <td><?php echo $row['nombrecategoria'] ?></td>
                 <td><?php echo $row['codigo'] ?></td>
-                <td><?php echo $row['precioventa'] ?></td>
-                <td><?php echo $row['preciocosto'] ?></td>
+                <td><?php echo 'Q '.$row['precioventa'] ?></td>
+                <td><?php echo 'Q '.$row['preciocosto'] ?></td>
                 <td><?php echo $row['nombreempresa'] ?></td>
                 <td><?php if ($row['cantidad'] >= 10) : ?><p class="badge rounded-pill text-bg-success">Hay Stock</p>
                     <?php elseif ($row['cantidad'] > 0 && $row['cantidad'] < 10) : ?><p class="badge rounded-pill text-bg-warning">Está por agotarse</p>

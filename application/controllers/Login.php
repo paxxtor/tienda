@@ -191,8 +191,8 @@ class Login extends CI_Controller
 			$usuario = $this->db->get_where('clientes', array('correo' => $correo))->row_array();
 			$body = 'Hola ' . $usuario['nombre'] . ', este es tu código de activación para tu cuenta: ' . $usuario['activacion'];
 			$this->submitWa($usuario['telefono'], $body);
-			$this->session->set_tempdata('verificarcodigo', $codigo, 25);
-			$this->session->set_tempdata('verificarcorreo', $correo, 25);
+			$this->session->set_tempdata('verificarcodigo', $codigo, 125);
+			$this->session->set_tempdata('verificarcorreo', $correo, 125);
 			echo '102';
 		}
 	}

@@ -498,4 +498,11 @@ class Admin extends CI_Controller
     echo '200';
     else echo '404';
 }
+
+/* Función para obter las tablas*/
+function getTable($table = '' ,$param1 = '' ,$param2 = '' ,$param3 = '')
+{
+    return $this->crud->getTables($table,$param1,$param2,$param3);  
+}
+
 }

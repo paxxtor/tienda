@@ -115,20 +115,6 @@ function enviarregistro() {
 }
 
 
-// function validarEmail(elemento){
-// 	console.log(elemento);
-// 	var texto = document.getElementById(elemento.id).value;
-// 	var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-	
-// 	if (!regex.test(texto)) {
-// 		document.getElementById("resultado").innerHTML = "Correo invalido";
-// 	} else {
-// 	  document.getElementById("resultado").innerHTML = "";
-// 	}
-  
-//   }
-
-
 
 //funciones administrador
 function enviaradmin() {
@@ -165,3 +151,23 @@ function comprar() {
 		},
 	});
 }
+
+
+//funcion para la vistas
+var dataTable = $('#sample_data').DataTable({
+    "processing": true,
+    "serverSide": true,
+    "order": [],
+    "ajax": {
+        url: "<?php echo base_url() . 'admin/getTable/samples/'.$category_id; ?>",
+        type: "POST"
+    },
+
+    "columnDefs": [{
+        "targets": 0,
+        "orderable": false,
+    }, ],
+    "scrollX": true,
+    "scrollY": false,
+    className: "noWrapTd",
+});
