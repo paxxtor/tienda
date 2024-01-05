@@ -412,6 +412,7 @@ class Admin extends CI_Controller
             $page_data['page_name'] = 'ventas';
             $page_data['listaclientes'] = $this->db->get('clientes')->result_array();
             $page_data['listaproductos'] = $this->db->get('productos')->result_array();
+            $page_data['cantprodu'] = $this->db->get('productos')->num_rows()-1;
             $this->load->view('index', $page_data);
         }
     }

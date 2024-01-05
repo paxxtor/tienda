@@ -34,6 +34,10 @@ class Crud extends CI_Model {
     public function detallecompra($id_encabezado){
         return $this->db->query(sprintf('SELECT *,detalleventa.cantidad FROM `detalleventa` INNER JOIN productos on productos.id_producto = detalleventa.id_producto WHERE detalleventa.id_encabezado = %d;', $id_encabezado))->result_array();
     }
+    public function obtener_productos($inicio, $registros) {
+        $this->db->limit($registros, $inicio);
+        return $query = $this->db->get('productos')->result_array();
+    }
 }
 
 
