@@ -36,7 +36,7 @@ class Crud extends CI_Model {
     }
     public function obtener_productos($inicio, $registros) {
         $this->db->limit($registros, $inicio);
-        return $query = $this->db->get('productos')->result_array();
+        return $query = $this->db->get_where('productos',array('estado'=>1))->result_array();
     }
 }
 
