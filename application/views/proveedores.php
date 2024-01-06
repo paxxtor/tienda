@@ -1,6 +1,6 @@
 <a href="#" data-bs-toggle="modal" data-bs-target="#registrarproveedor" class="btn btn-success">Registrar Proveedor</a>
 
-<table class="table table-bordered">
+<table class="table table-bordered"  id="myTable">
   <thead>
     <tr>
       <th scope="col">ID</th>

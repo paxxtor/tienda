@@ -10,7 +10,7 @@
     $_REQUEST["nume"] = '1';
   }
 
-  $registros = '3';
+  $registros = '2';
   $pagina = $_REQUEST["nume"];
 
   if(is_numeric($pagina))

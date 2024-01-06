@@ -31,8 +31,6 @@ function btnreenviocodigo(){
 	});
 }
 
-
-
 //funciones usuario
 function enviar() {
 	let datos = document.getElementById("formulario");
@@ -114,8 +112,6 @@ function enviarregistro() {
 
 }
 
-
-
 //funciones administrador
 function enviaradmin() {
 	let datos = document.getElementById("formularioadmin");
@@ -131,7 +127,6 @@ function enviaradmin() {
 		},
 	});
 }
-
 
 function comprar() {
 	let datos = document.getElementById("formcomprar");
@@ -152,7 +147,6 @@ function comprar() {
 	});
 }
 
-
 //funcion para la vistas
 var dataTable = $('#sample_data').DataTable({
     "processing": true,
@@ -170,4 +164,18 @@ var dataTable = $('#sample_data').DataTable({
     "scrollX": true,
     "scrollY": false,
     className: "noWrapTd",
+});
+
+$(document).ready( function () {
+    $('#myTable').DataTable({
+		language: {
+			url: 'https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
+		  }
+	});
+} );
+
+$(document).ready(function() {
+    $('.js-example-basic-single').select2({
+		dropdownParent: $('#registrarProducto')
+	});
 });

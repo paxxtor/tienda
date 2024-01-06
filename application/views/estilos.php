@@ -4,4 +4,5 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/table/datatable/datatables.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/table/datatable/custom_dt_html5.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/table/datatable/dt-global_style.css?v=0">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="<?= base_url(); ?>public/css/style.css">

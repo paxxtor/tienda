@@ -1,7 +1,7 @@
 <div class="mb-3 ">
   <a href="#" data-bs-toggle="modal" data-bs-target="#registrarcliente" class="btn btn-success">Registrar Cliente</a>
 </div>
-<table class="table table-bordered">
+<table class="table table-bordered"  id="myTable">
   <thead>
     <tr>
       <th scope="col">ID</th>

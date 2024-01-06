@@ -1,7 +1,7 @@
 
 <div class="container ">
 <form action="<?php echo base_url() ?>/admin/ventas/actualizarcarrito" id="formulario" method="post">
-    <table class="table  mt-2 ">
+    <table class="table  mt-2 " id="myTable">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">No. Recibo</th>

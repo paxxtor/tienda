@@ -2,7 +2,7 @@
 <a href="#" data-bs-toggle="modal" data-bs-target="#registrarProducto" class="btn btn-success ">Registrar Producto</a>
 <a href="#" data-bs-toggle="modal" data-bs-target="#registrarcategoria" class="btn btn-secondary ">Agregar categoria</a>
 
-<table class="table table-bordered mt-3  ">
+<table class="table table-bordered mt-3" id="myTable">
     <thead>
         <tr>
             <th>ID</th>
@@ -68,9 +68,15 @@
     </tbody>
 </table>
 
+<select class="js-example-basic-single" name="state">
+<option value="AL">Alabama</option>
+    ...
+<option value="WY">Wyoming</option>
+</select>
 
 
-<div class="modal fade" id="registrarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<div class="modal fade" id="registrarProducto"  tabindex="-1" aria-labelledby="exampleModalLabel" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -111,7 +117,7 @@
                     </div>
                     <div class="form-group mb-5">
                         <label class="mx-3">Proveedor:</label>
-                        <select  name="id_proveedor" class="form-control" required>
+                        <select  name="id_proveedor" class="form-control js-example-basic-single" required>
                             <?php foreach ($empresa as $fila) : 
                                 ?>
                                 <option value="<?php echo $fila['id_proveedor'] ?>"><?php echo $fila['nombreempresa'] ?></option>
@@ -127,7 +133,12 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
-
+                    <select class="js-example-basic-single" name="state">
+                    <option value="AL">Alabama</option>
+                        ...
+                    <option value="WY">Wyoming</option>
+                    </select>
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Registrar</button>
@@ -167,3 +178,5 @@
         </div>
     </div>
 </div>
+
+

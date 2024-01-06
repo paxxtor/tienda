@@ -14,8 +14,6 @@
 		</div>
 		<div class="text-center fs-1 fw-bold">Administrador</div>
 
-
-
 		<form action="" id="formularioadmin" method="post">
 			<div class="input-group mt-4">
 				<div class="input-group-text login-color-bg">

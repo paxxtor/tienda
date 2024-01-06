@@ -1,3 +1,4 @@
+<div class="container">
 <?php
 foreach ($producto as $row):
     ?>
@@ -63,3 +64,4 @@ foreach ($producto as $row):
 ?>
 
 </form>
+</div>

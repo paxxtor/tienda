@@ -1,5 +1,5 @@
 <a href="#" data-bs-toggle="modal" data-bs-target="#registraradmin" class="btn btn-success ">Registrar Administrador</a>
-<table class="table table-bordered mt-2">
+<table class="table table-bordered mt-2"  id="myTable">
   <thead>
     <tr>
       <th scope="col">ID</th>
