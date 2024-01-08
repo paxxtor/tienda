@@ -474,19 +474,6 @@ class Admin extends CI_Controller
         $mpdf->Output($pdfFilePath, "D");  
     }   
 
-    // function encabezado() {
-    //     $data['id_persona'] = $this->session->userdata('id_persona');
-    //     $data['fecha'] = getdate();
-    // }
-
-    // function historial( ) {
-    
-    //     $page_data['title'] = 'Historial';
-    //     $page_data['encabezado']= $this->db->query('SELECT encabezado.estado,encabezado.id_encabezado, encabezado.id_persona, encabezado.id_vendedor, encabezado.fecha, encabezado.direccionenvio, encabezado.total, encabezado.notas, clientes.nombre, clientes.apellido, clientes.telefono, clientes.nit,clientes.correo FROM `encabezado` INNER JOIN clientes on clientes.id_cliente = encabezado.id_persona;')->result_array();
-    //     $page_data['page_name'] = 'historial';
-    //     $this->load->view('index', $page_data);
-    
-    // }
  function compra(){
 	$page_data['title'] = 'Detalle de compra';
 	$page_data['page_name']= 'compra';
@@ -498,11 +485,69 @@ class Admin extends CI_Controller
     echo '200';
     else echo '404';
 }
+function vistaprueba(){
+    $data["page_name"] = "compracliente";
+    $data["title"] = "Prueba";
+    $this->load->view('index',$data);
+}
+
+function optabla($param1 = ''){
+    switch($param1){
+        
+        case 'listar':
+            $datos=$this->crud->getproductostab();
+            $data= Array();
+            foreach($datos as $row){
+                $sub_array = array();
+                // $sub_array[] = $row["id_producto"];
+                $sub_array[] = $row["nombre"];
+                // $sub_array[] = $row["cantidad"];
+                // $sub_array[] = $row["codigo"];
+                $sub_array[] = '<button type="button" onClick="editar('.$row["id_producto"].');"  id="'.$row["id_producto"].'" class="btn btn-outline-primary btn-icon"><div><i class="fa fa-edit"></i></div></button>';
+                $sub_array[] = '<button type="button" onClick="eliminar('.$row["id_producto"].');"  id="'.$row["id_producto"].'" class="btn btn-outline-danger btn-icon"><div><i class="fa fa-trash"></i></div></button>';
+                $data[]=$sub_array;
+            }
+
+            $results = array(
+                "sEcho"=>1,
+                "iTotalRecords"=>count($data),
+                "iTotalDisplayRecords"=>count($data),
+                "aaData"=>$data);
+            echo json_encode($results);
+            break;
+
+
+            // $datos['productos'] = $this->crud->getproductostab();
+            // $datos['page_name'] = "compracliente";
+            // $datos['title'] = "prueba";
+            // $data = Array();
+            // foreach($datos['productos'] as $row)
+            // {
+            //     $sub_array = array();
+            //     $sub_array[] = $row["nombre"];
+            //     $sub_array[] = '<button type="button" onClick="editar('.$row["id_producto"].');"  id="'.$row["id_producto"].'" class="btn btn-outline-primary btn-icon"><div><i class="fa fa-edit"></i></div></button>';
+            //     $sub_array[] = '<button type="button" onClick="eliminar('.$row["id_producto"].');"  id="'.$row["id_producto"].'" class="btn btn-outline-danger btn-icon"><div><i class="fa fa-trash"></i></div></button>';
+                
+            //     $data[] = $sub_array;
+            // }
+
+            // $result = array (
+            //     "sEcho" => 1,
+            //     "iTotalRecords" => count($data),
+            //     "iTotalDisplayRecords"=>count($data),
+            //     "aaData"=>$data);
+            // $datos['resultados'] = $result;
+            // $this->load->view("index",$datos);
+            break;
+    }
+
+}
 
 /* Función para obter las tablas*/
 function getTable($table = '' ,$param1 = '' ,$param2 = '' ,$param3 = '')
 {
     return $this->crud->getTables($table,$param1,$param2,$param3);  
+    
 }
 
 }

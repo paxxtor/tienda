@@ -9,7 +9,7 @@ class Crud extends CI_Model {
         $this->load->database();
         $this->load->library('session');
         $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
-        $this->output->set_header('Pragma: no-cache');    
+        $this->output->set_header('Pragma: no-cache');
     }
 
     public function getproveedores()
@@ -42,19 +42,94 @@ class Crud extends CI_Model {
 
     function getTables($table = '', $param1 = '', $param2 = '', $param3 = '')
     {
-        $fetch_data = $this->MakeTable($table, $param1, $param2, $param3);  
-        
-        $data = $this->getArrays($table,$fetch_data,$param1, $param2, $param3);    
-       
-        $output = array(  
-            "draw"                      =>      intval($_POST["draw"]),  
-            "recordsTotal"              =>      $this->GetAllData($table,$param1, $param2, $param3),  
-            "recordsFiltered"           =>      $this->GetFilteredData($table,$param1, $param2, $param3),  
-            "data"                      =>      $data  
-        );  
-        
-        echo json_encode($output); 
+        $datos=$this->db->get('productos')->result_array();
+            $data= Array();
+            foreach($datos as $row){
+                $sub_array = array();
+                // $sub_array[] = $row["id_producto"];
+                $sub_array[] = $row["nombre"];
+                // $sub_array[] = $row["cantidad"];
+                // $sub_array[] = $row["codigo"];
+                $sub_array[] = '<button type="button" onClick="editar('.$row["id_producto"].');"  id="'.$row["id_producto"].'" class="btn btn-outline-primary btn-icon"><div><i class="bi bi-pen"></i></div></button>';
+                $sub_array[] = '<button type="button" onClick="eliminar('.$row["id_producto"].');"  id="'.$row["id_producto"].'" class="btn btn-outline-danger btn-icon"><div><i class="bi bi-trash"></i></div></button>';
+                $data[]=$sub_array;
+            }
+
+            $results = array(
+                "sEcho"=>1,
+                "iTotalRecords"=>count($data),
+                "iTotalDisplayRecords"=>count($data),
+                "aaData"=>$data);
+            echo json_encode($results);
     }
+
+    function MakeTable($table,$param1, $param2, $param3)
+	{
+        // $this->MakeQuery($table,$param1, $param2, $param3);
+        $this->db->from("productos");
+
+        // if($_POST["length"] != -1)
+        // {
+        //     $this->db->limit($_POST['length'], $_POST['start']);
+        // }
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function MakeQuery($table,$param1, $param2, $param3)
+    {
+        $this->db->select("*");
+
+        if($table == 'productos')
+        {
+            $this->db->from("productos");
+        }
+
+        // if($_POST["search"]["value"] != "")
+        // {
+        //     if($table == 'productos')
+        //     {
+        //         $search = explode(' ',$_POST["search"]["value"]);
+        //         $this->db->like("productos", $_POST["search"]["value"],'both');
+
+        //         for($i=0;$i < count($search); $i++)
+        //         {
+        //             if($i == 0)
+        //                 $this->db->or_like("nombre",$search[$i],'both');
+        //             else
+        //                 $this->db->like("nombre",$search[$i],'both');
+        //         }
+        //     }
+
+        // }
+    }
+
+
+
+    function getArrays($table, $fetch_data,$param1, $param2, $param3)
+    {
+        if($table == 'productos')
+        {
+           return $this->get_samples($table, $fetch_data,$param1, $param2, $param3);
+        }
+
+    }
+    function GetAllData($table,$param1, $param2, $param3)
+    {
+        if($table == 'productos')
+        {
+            $this->db->select("*");
+            $this->db->from("productos");
+            return $this->db->count_all_results();
+        }
+    }
+    function GetFilteredData($table,$param1, $param2, $param3)
+    {
+        $this->MakeQuery($table,$param1, $param2, $param3);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
 
 }
 

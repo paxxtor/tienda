@@ -148,39 +148,73 @@ function comprar() {
 }
 
 //funcion para la vistas
-var dataTable = $('#sample_data').DataTable({
-    "processing": true,
-    "serverSide": true,
-    "order": [],
-    "ajax": {
-        url: "<?php echo base_url() . 'admin/getTable/samples/'.$category_id; ?>",
-        type: "POST"
-    },
+// var dataTable = $('#producto_data').DataTable({
+//     "processing": true,
+//     "serverSide": true,
+//     "order": [],
+//     "ajax": {
+//         url: base_url+'admin/getTable',
+//         type: "POST"
+//     },
 
-    "columnDefs": [{
-	"targets": 0,
-    "orderable": false,
-    }, ],
-    "scrollX": true,
-    "scrollY": false,
-    className: "noWrapTd",
-});
+//     "columnDefs": [{
+//         "targets": 0,
+//         "orderable": false,
+//     }, ],
+//     "scrollX": true,
+//     "scrollY": false,
+//     className: "noWrapTd",
+// });
 
-
-$(document).ready( function () {
-    $('#myTable').DataTable({
-		buttons: [
-        'copy', 'excel', 'pdf'
-    	],
-		language: {
-			url: 'https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
-		  }
-	});
-} );
 
 $(document).ready(function() {
     $('.js-example-basic-single').select2({
 		dropdownParent: $('#registrarProducto')
 	});
 });
+
+$(document).ready(function(){ 
+    tabla=$('#producto_data').dataTable({
+		"aProcessing": true,//Activamos el procesamiento del datatables
+	    "aServerSide": true,//Paginación y filtrado realizados por el servidor
+        "ajax":{
+            url: base_url+'admin/optabla/listar',
+            type : "get",
+            dataType : "json",
+            error: function(e){
+                console.log(e.responseText);	
+            }
+        },
+		"bDestroy": true,
+		"responsive": true,
+		"bInfo":true,
+		"iDisplayLength": 3,//Por cada 10 registros hace una paginación
+	    "order": [[ 0, "asc" ]],//Ordenar (columna,orden)
+	    "language": {
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+            "sInfo":           "Mostrando un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Último",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+		}
+	}).DataTable();
+});
+
 
