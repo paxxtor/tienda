@@ -158,16 +158,20 @@ var dataTable = $('#sample_data').DataTable({
     },
 
     "columnDefs": [{
-        "targets": 0,
-        "orderable": false,
+	"targets": 0,
+    "orderable": false,
     }, ],
     "scrollX": true,
     "scrollY": false,
     className: "noWrapTd",
 });
 
+
 $(document).ready( function () {
     $('#myTable').DataTable({
+		buttons: [
+        'copy', 'excel', 'pdf'
+    	],
 		language: {
 			url: 'https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
 		  }
@@ -179,3 +183,4 @@ $(document).ready(function() {
 		dropdownParent: $('#registrarProducto')
 	});
 });
+

@@ -68,14 +68,6 @@
     </tbody>
 </table>
 
-<select class="js-example-basic-single" name="state">
-<option value="AL">Alabama</option>
-    ...
-<option value="WY">Wyoming</option>
-</select>
-
-
-
 <div class="modal fade" id="registrarProducto"  tabindex="-1" aria-labelledby="exampleModalLabel" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -126,19 +118,13 @@
                     </div>
                     <div class="form-group mb-5">
                         <label class="mx-3">categoria:</label>
-                        <select  name="id_categoria" class="form-control" required>
+                        <select  name="id_categoria" class="form-control js-example-basic-single" required>
                             <?php foreach ($categoria as $fila) : 
                                 ?>
                                 <option value="<?php echo $fila['id_categoria'] ?>"><?php echo $fila['nombre'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <select class="js-example-basic-single" name="state">
-                    <option value="AL">Alabama</option>
-                        ...
-                    <option value="WY">Wyoming</option>
-                    </select>
-                    
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Registrar</button>
@@ -148,7 +134,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="modal fade" id="registrarcategoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
