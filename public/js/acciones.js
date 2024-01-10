@@ -148,23 +148,33 @@ function comprar() {
 }
 
 //funcion para la vistas
-// var dataTable = $('#producto_data').DataTable({
-//     "processing": true,
-//     "serverSide": true,
-//     "order": [],
-//     "ajax": {
-//         url: base_url+'admin/getTable',
-//         type: "POST"
-//     },
-
-//     "columnDefs": [{
-//         "targets": 0,
-//         "orderable": false,
-//     }, ],
-//     "scrollX": true,
-//     "scrollY": false,
-//     className: "noWrapTd",
-// });
+var dataTable = $('#producto_data').DataTable({
+    "Processing": true,
+    "ServerSide": true,
+    "ajax":{
+		url: base_url+'admin/getTable',
+		type : "get",
+		dataType : "json",
+		error: function(e){
+			console.log(e.responseText);	
+		}
+	},
+	"language":{
+		url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json',
+	},
+	"bDestroy": true,
+	"responsive": true,
+	"bInfo":true,
+	"iDisplayLength": 3,//Por cada 10 registros hace una paginación
+	"order": [[ 0, "asc" ]],//Ordenar (columna,orden)
+    "columnDefs": [{
+        "targets": 0,
+        "orderable": false,
+    }, ],
+    "scrollX": true,
+    "scrollY": false,
+    className: "noWrapTd",
+});
 
 
 $(document).ready(function() {
@@ -173,48 +183,65 @@ $(document).ready(function() {
 	});
 });
 
-$(document).ready(function(){ 
-    tabla=$('#producto_data').dataTable({
-		"aProcessing": true,//Activamos el procesamiento del datatables
-	    "aServerSide": true,//Paginación y filtrado realizados por el servidor
-        "ajax":{
-            url: base_url+'admin/optabla/listar',
-            type : "get",
-            dataType : "json",
-            error: function(e){
-                console.log(e.responseText);	
-            }
-        },
-		"bDestroy": true,
-		"responsive": true,
-		"bInfo":true,
-		"iDisplayLength": 3,//Por cada 10 registros hace una paginación
-	    "order": [[ 0, "asc" ]],//Ordenar (columna,orden)
-	    "language": {
-            "sProcessing":     "Procesando...",
-            "sLengthMenu":     "Mostrar _MENU_ registros",
-            "sZeroRecords":    "No se encontraron resultados",
-            "sEmptyTable":     "Ningún dato disponible en esta tabla",
-            "sInfo":           "Mostrando un total de _TOTAL_ registros",
-            "sInfoEmpty":      "Mostrando un total de 0 registros",
-            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-            "sInfoPostFix":    "",
-            "sSearch":         "Buscar:",
-            "sUrl":            "",
-            "sInfoThousands":  ",",
-            "sLoadingRecords": "Cargando...",
-            "oPaginate": {
-                "sFirst":    "Primero",
-                "sLast":     "Último",
-                "sNext":     "Siguiente",
-                "sPrevious": "Anterior"
-            },
-            "oAria": {
-                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-            }
-		}
-	}).DataTable();
-});
+// $(document).ready(function(){ 
+//     tabla=$('#producto_data').dataTable({
+// 		"aProcessing": true,//Activamos el procesamiento del datatables
+// 	    "aServerSide": true,//Paginación y filtrado realizados por el servidor
+//         "ajax":{
+//             url: base_url+'admin/getTable',
+//             type : "get",
+//             dataType : "json",
+//             error: function(e){
+//                 console.log(e.responseText);	
+//             }
+//         },
+// 		"bDestroy": true,
+// 		"responsive": true,
+// 		"bInfo":true,
+// 		"iDisplayLength": 3,//Por cada 10 registros hace una paginación
+// 	    "order": [[ 0, "asc" ]],//Ordenar (columna,orden)
+// 	    "language": {
+//             "sProcessing":     "Procesando...",
+//             "sLengthMenu":     "Mostrar _MENU_ registros",
+//             "sZeroRecords":    "No se encontraron resultados",
+//             "sEmptyTable":     "Ningún dato disponible en esta tabla",
+//             "sInfo":           "Mostrando un total de _TOTAL_ registros",
+//             "sInfoEmpty":      "Mostrando un total de 0 registros",
+//             "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+//             "sInfoPostFix":    "",
+//             "sSearch":         "Buscar:",
+//             "sUrl":            "",
+//             "sInfoThousands":  ",",
+//             "sLoadingRecords": "Cargando...",
+//             "oPaginate": {
+//                 "sFirst":    "Primero",
+//                 "sLast":     "Último",
+//                 "sNext":     "Siguiente",
+//                 "sPrevious": "Anterior"
+//             },
+//             "oAria": {
+//                 "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+//                 "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+//             }
+// 		}
+// 	}).DataTable();
+// });
 
 
+function editar(){
+	
+
+}
+
+function eliminar(id){
+	$.ajax({
+		type: "POST",
+		url: base_url + "admin/productojq/eliminar/"+id,
+		data: form,
+		processData: false,
+		contentType: false,
+		success: function (data) {
+			console.log(data);
+		},
+	});
+}

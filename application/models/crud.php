@@ -42,6 +42,7 @@ class Crud extends CI_Model {
 
     function getTables($table = '', $param1 = '', $param2 = '', $param3 = '')
     {
+        $this->db->where('estado',1);
         $datos=$this->db->get('productos')->result_array();
             $data= Array();
             foreach($datos as $row){

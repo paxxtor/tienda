@@ -169,7 +169,7 @@ class Admin extends CI_Controller
                     $data['estado'] = 2;
                     $nombrefotografia = $this->db->get_where('productos', array('id_producto' => $param2))->row()->fotografia;
                     unlink('public/uploads/productos/' . $nombrefotografia);
-                    $this->db->where('id_producto', $param2);
+                    $his->db->where('id_producto', $param2);
                     $this->db->update('productos', $data);
                     redirect(base_url('admin/producto'), 'refresh');
                     break;
@@ -547,7 +547,19 @@ function optabla($param1 = ''){
 function getTable($table = '' ,$param1 = '' ,$param2 = '' ,$param3 = '')
 {
     return $this->crud->getTables($table,$param1,$param2,$param3);  
-    
 }
+
+}
+
+
+
+function productojq($param1 = '',$param2=''){
+    switch($param1){
+        case 'eliminar':
+            $data['estado'] = 2;
+            $this->db->where('id_producto', $param2);
+            $this->db->update('productos',$data);
+            break;
+    }
 
 }
