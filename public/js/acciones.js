@@ -151,6 +151,10 @@ function comprar() {
 var dataTable = $('#producto_data').DataTable({
     "Processing": true,
     "ServerSide": true,
+	dom: 'Bfrtip',
+    buttons: [
+        'copy', 'excel', 'pdf'
+    ],
     "ajax":{
 		url: base_url+'admin/getTable',
 		type : "get",
@@ -176,12 +180,6 @@ var dataTable = $('#producto_data').DataTable({
     className: "noWrapTd",
 });
 
-
-$(document).ready(function() {
-    $('.js-example-basic-single').select2({
-		dropdownParent: $('#registrarProducto')
-	});
-});
 
 // $(document).ready(function(){ 
 //     tabla=$('#producto_data').dataTable({
@@ -233,15 +231,33 @@ function editar(){
 
 }
 
-function eliminar(id){
-	$.ajax({
-		type: "POST",
-		url: base_url + "admin/productojq/eliminar/"+id,
-		data: form,
-		processData: false,
-		contentType: false,
-		success: function (data) {
-			console.log(data);
-		},
-	});
+function eliminar(id) {
+	Swal.fire({
+		title: "Estas seguro?",
+		text: "Esto no se puede deshacer!",
+		icon: "warning",
+		showCancelButton: true,
+		confirmButtonColor: "#3085d6",
+		cancelButtonColor: "#d33",
+		cancelButtonText: "Cancelar",
+		confirmButtonText: "Si, eliminar!"
+	  }).then((result) => {
+		if (result.isConfirmed) {
+			$.ajax({
+				type: "POST",
+				url: base_url + "admin/productojq/eliminar/" + id,
+				processData: false,
+				contentType: false,
+				success: function (data) {
+					console.log(data);
+					dataTable.ajax.reload();
+				},
+			});
+			Swal.fire({
+				title: "Eliminado!",
+				text: "El producto ha sido eliminado",
+				icon: "success"
+			});
+		}
+	  });
 }

@@ -549,17 +549,22 @@ function getTable($table = '' ,$param1 = '' ,$param2 = '' ,$param3 = '')
     return $this->crud->getTables($table,$param1,$param2,$param3);  
 }
 
-}
-
-
 
 function productojq($param1 = '',$param2=''){
-    switch($param1){
+    switch($param1)
+    {
         case 'eliminar':
             $data['estado'] = 2;
+            $nombrefotografia = $this->db->get_where('productos', array('id_producto' => $param2))->row()->fotografia;
+            unlink('public/uploads/productos/' . $nombrefotografia);
             $this->db->where('id_producto', $param2);
-            $this->db->update('productos',$data);
+            $this->db->update('productos', $data);
+            echo '1';
             break;
+        default:
+            echo 'ocurrio un error';
+
     }
+}
 
 }
