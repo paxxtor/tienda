@@ -1,0 +1,79 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2024-01-15 20:29:50 --> 404 Page Not Found: Public/uploads
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2024-01-15 20:29:50 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:29:52 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:29:52 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:29:59 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:29:59 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:30:07 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:30:07 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:30:41 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:30:42 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:30:55 --> Severity: Warning --> unlink(public/uploads/productos/7-bocina1.jpg): No such file or directory C:\wamp64\www\ejemplo\application\controllers\Admin.php 559
+ERROR - 2024-01-15 20:31:51 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:31:51 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:31:51 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:31:52 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:31:52 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:32:30 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:32:30 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:32:30 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:32:32 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:32:33 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:32:33 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:32:33 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:32:34 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:32:34 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:32:34 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:32:34 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:32:35 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:32:36 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:33:37 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:33:37 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:33:37 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:33:37 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:33:38 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:33:38 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:33:38 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:46:34 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:47:18 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:47:18 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:47:35 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:47:35 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:47:36 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:47:36 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:47:36 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:47:40 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:47:40 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:47:40 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:47:41 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:47:42 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:47:42 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:47:42 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:47:42 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:47:42 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:47:42 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 20:53:16 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:21:00 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:32:03 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:32:04 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:32:04 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:32:05 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:32:05 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:32:05 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:32:06 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:32:07 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:32:07 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:32:08 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:32:09 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:32:09 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:32:09 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:32:10 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:32:10 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:32:12 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 21:32:13 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-15 23:46:37 --> Severity: Warning --> Undefined variable $fontDirs C:\wamp64\www\ejemplo\application\controllers\Admin.php 453
+ERROR - 2024-01-15 23:46:37 --> Severity: error --> Exception: array_merge(): Argument #1 must be of type array, null given C:\wamp64\www\ejemplo\application\controllers\Admin.php 454

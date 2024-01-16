@@ -436,8 +436,8 @@ class Admin extends CI_Controller
         $page_data['detalle'] = $this->crud->detallecompra($param1);
         $tamañofilas = 82;
         foreach($page_data['detalle'] as $row){
-            $aprox = ceil(strlen($row['nombre'])/32);
-            $tamañofilas += $aprox*2;
+            $aprox = ceil(strlen($row['nombre'])/22);
+            $tamañofilas += $aprox*8;
         }
 
         $data = array(
@@ -450,7 +450,7 @@ class Admin extends CI_Controller
         // $this->load->library('M_pdf');
         $mpdf = new \Mpdf\Mpdf([
             "orientation"=> "L",
-            "format"=>[$tamañofilas,45],
+            "format"=>[$tamañofilas,58],
             "margin_left"=> 1,
             "margin_right"=>1,
             "margin_top"=>8,
@@ -470,8 +470,8 @@ class Admin extends CI_Controller
             //  4,     // margin footer
             //  'L');  // L - landscape, P - portrait
         $mpdf->packTableData = true;
-        $mpdf->WriteHTML($html,2);
-        $mpdf->Output($pdfFilePath, "D");  
+        $mpdf->WriteHTML($html,0);
+        $mpdf->Output($pdfFilePath, "I");  
     }   
 
  function compra(){
