@@ -437,7 +437,7 @@ class Admin extends CI_Controller
         $tamañofilas = 82;
         foreach($page_data['detalle'] as $row){
             $aprox = ceil(strlen($row['nombre'])/22);
-            $tamañofilas += $aprox*8;
+            $tamañofilas += $aprox*10;
         }
 
         $data = array(
@@ -450,11 +450,11 @@ class Admin extends CI_Controller
         // $this->load->library('M_pdf');
         $mpdf = new \Mpdf\Mpdf([
             "orientation"=> "L",
-            "format"=>[$tamañofilas,58],
-            "margin_left"=> 1,
-            "margin_right"=>1,
+            "format"=>[$tamañofilas,48],
+            "margin_left"=> 0,
+            "margin_right"=>0,
             "margin_top"=>8,
-            "margin_bottom"=>1,
+            "margin_bottom"=>3,
             "margin_header"=>4,
             "margin_footer"=>4,
 
@@ -567,4 +567,128 @@ function productojq($param1 = '',$param2=''){
     }
 }
 
+    function service_export()
+    {
+    $this->load->library('excel');
+    $md5 = md5(date('d-m-Y H:i:s'));
+    $path = 'public/uploads/import/services.xlsx';
+
+    $objReader = PHPExcel_IOFactory::createReader('Excel2007');
+    $objPHPExcel = $objReader->load($path);
+
+    // $number_of_entries   =   sizeof($columns);
+
+    $styleArray = array(
+        'borders' => array(
+            'allborders' => array(
+            'style' => PHPExcel_Style_Border::BORDER_THIN
+            )
+        )
+        ); 
+    setlocale(LC_ALL,"es_ES");
+    
+    $objPHPExcel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_PORTRAIT);
+    $objPHPExcel->getActiveSheet()->getPageSetup()->setPaperSize(PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
+    $objPHPExcel->getActiveSheet()->getPageSetup()->setFitToPage(true);
+    
+    // $newSheet = $objPHPExcel->createSheet();
+    // $newSheet->setTitle('Nueva Hoja');
+    // $newSheet->setCellValue('A1', 'Datos');
+    // $newSheet->setCellValue('A2', 'de');
+    // $newSheet->setCellValue('A3', 'Ejemplo');
+
+    // if($this->input->post('category_id') != 'T')
+    // {
+    //     $this->db->where('category_id',$this->input->post('category_id'));
+    // }
+
+    // if($this->input->post('subcategory_id') != 'T')
+    // {
+    //     $this->db->where('subcategory_id',$this->input->post('subcategory_id'));
+    // }
+    // $this->db->where('type',2);
+    // $this->db->where('status',1);
+    // $products = $this->db->get('product')->result_array();
+
+
+    $products = $this->crud->getproductostab();
+
+
+    // log_message('error',$this->db->last_query());
+    log_message('error',count($products));
+    $row = 8;
+    foreach ($products as $product) {
+        
+        $objPHPExcel->getActiveSheet()->setCellValue('A' . $row, $product['nombre']);
+        $objPHPExcel->getActiveSheet()->setCellValue('B' . $row, $product['cantidad']);
+        $objPHPExcel->getActiveSheet()->setCellValue('C' . $row, $product['codigo']);
+        $objPHPExcel->getActiveSheet()->setCellValue('D' . $row, $product['id_categoria']);
+        $objPHPExcel->getActiveSheet()->setCellValue('E' . $row, $product['fotografia']);
+        $objPHPExcel->getActiveSheet()->setCellValue('F' . $row, $product['descripcion']);
+        $objPHPExcel->getActiveSheet()->setCellValue('G' . $row, $product['precioventa']);
+        $objPHPExcel->getActiveSheet()->setCellValue('H' . $row, $product['preciocosto']);
+        $objPHPExcel->getActiveSheet()->setCellValue('I' . $row, $product['id_proveedor']);
+        $objPHPExcel->getActiveSheet()->setCellValue('J' . $row, $product['estado']);
+        // $objPHPExcel->getActiveSheet()->setCellValue('H' . $row, $product['preciocosto']);
+        // $objPHPExcel->getActiveSheet()->setCellValue('I' . $row, $product['price_2']);
+        // $objPHPExcel->getActiveSheet()->setCellValue('J' . $row, $product['price_3']);
+        $row++;
+    }
+    
+    // Configurar el encabezado HTTP para descargar el archivo Excel
+    $nombrePersonalizado = "Servicios.xlsx";
+
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment;filename="' . $nombrePersonalizado . '"');
+    header('Content-Disposition: attachment;filename="productos.xlsx"');
+    header('Cache-Control: max-age=0');
+
+    // Guardar el archivo Excel en el flujo de salida
+    $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+    $objWriter->save('php://output');
+
+    exit();
+    
+    }
+
+    function service_import()
+    {
+        $this->load->library('excel');
+        $md5 = md5(date('d-m-Y H:i:s'));
+        $name = $md5.str_replace(' ', '', $_FILES['files']['name']);
+        $type = 2;
+        
+        if($_FILES['files']['name'] != ''){
+            $data['file']              = $name;
+            move_uploaded_file($_FILES['files']['tmp_name'], 'public/uploads/import/' . $name);
+        }
+                $path = 'public/uploads/import/' . $name;
+                $object = PHPExcel_IOFactory::load($path);
+                foreach($object->getWorksheetIterator() as $worksheet)
+                {
+                    $highestRow = $worksheet->getHighestRow();
+                    $highestColumn = $worksheet->getHighestColumn();
+                
+                    for($row=8; $row <= $highestRow; $row++)
+                    {
+                    // log_message('error',)
+                    $data = array(
+                        'nombre' =>   $worksheet->getCellByColumnAndRow(0, $row)->getValue(),
+                        'cantidad' =>   $worksheet->getCellByColumnAndRow(1, $row)->getValue(),
+                        'codigo'  =>    $worksheet->getCellByColumnAndRow(2, $row)->getValue(),
+                        'id_categoria' =>    $worksheet->getCellByColumnAndRow(3, $row)->getValue(),
+                        'fotografia' =>    $worksheet->getCellByColumnAndRow(4, $row)->getValue(),
+                        'descripcion' =>    $worksheet->getCellByColumnAndRow(5, $row)->getValue(),
+                        'precioventa' =>    $worksheet->getCellByColumnAndRow(6, $row)->getValue(),
+                        'preciocosto' =>    $worksheet->getCellByColumnAndRow(7, $row)->getValue(),
+                        'id_proveedor' =>    $worksheet->getCellByColumnAndRow(8, $row)->getValue(),
+                        'estado' =>    $worksheet->getCellByColumnAndRow(9, $row)->getValue(),
+                    );
+            
+                    $this->db->insert('productos',$data);
+                    // $product_id = $this->db->insert_id();
+                    }
+                }
+                unlink('public/uploads/import/' . $name);
+    }
 }

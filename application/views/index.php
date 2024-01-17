@@ -82,7 +82,7 @@
       let nivel = "<?php echo $this->session->userdata('nivel'); ?>";
       sessionStorage.setItem("verificacion", "<?php echo $this->session->flashdata('verificacion'); ?>");
 		</script>
-
+		<?php include 'modal.php'; ?>
 		<?php include 'scripts.php';?>
 
 	</body> 

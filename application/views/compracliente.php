@@ -1,3 +1,5 @@
+<button class="btn btn-info " onclick="showAjaxModal('<?php echo base_url();?>modal/popup/modal_product_import/');">Importar</button>
+
 <div class="table-wrapper mt-3 ">
               <table id="producto_data" class="table display responsive nowrap">
                 <thead>
