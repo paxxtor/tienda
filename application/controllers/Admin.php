@@ -591,10 +591,10 @@ public function upload() {
     {
     $reader = IOFactory::createReader('Xlsx');
     $spreadsheet = $reader->load($path);
-    $object = IOFactory::load($path);
-    $worksheet = $spreadsheet->getActiveSheet();
-
-    // foreach($object->getWorksheetIterator() as $worksheet){
+    // $object = IOFactory::load($path);
+    // $worksheet = $spreadsheet->getActiveSheet();
+    
+    // foreach($spreadsheet->getWorksheetIterator() as $worksheet){
     // $highestRow = $worksheet->getHighestRow();
     // $highestColumn = $worksheet->getHighestColumn();
 
