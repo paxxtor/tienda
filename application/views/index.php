@@ -87,3 +87,23 @@
 
 	</body> 
 </html>
+<script>
+$(document).ready(function(){
+  $('#load_excel_form').on('submit', function(event){
+    event.preventDefault();
+    $.ajax({
+      url: "<?php echo base_url() ?>admin/upload",
+      method:"POST",
+      data:new FormData(this),
+      contentType:false,
+      cache:false,
+      processData:false,
+      success:function(data)
+      {
+        $('#excel_area').html(data);
+        $('table').css('width','100%');
+      }
+    })
+  });
+});
+</script>
