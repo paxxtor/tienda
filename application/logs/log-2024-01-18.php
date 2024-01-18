@@ -48,3 +48,33 @@ ERROR - 2024-01-18 18:36:33 --> 404 Page Not Found: Public/uploads
 ERROR - 2024-01-18 18:36:42 --> 404 Page Not Found: Public/uploads
 ERROR - 2024-01-18 18:37:50 --> 404 Page Not Found: Public/uploads
 ERROR - 2024-01-18 18:38:26 --> 404 Page Not Found: Public/uploads
+ERROR - 2024-01-18 21:00:16 --> Severity: Warning --> Cannot modify header information - headers already sent by (output started at C:\wamp64\www\ejemplo\application\libraries\PHPExcel\Shared\String.php:526) C:\wamp64\www\ejemplo\system\core\Common.php 571
+ERROR - 2024-01-18 21:00:16 --> Severity: Compile Error --> Array and string offset access syntax with curly braces is no longer supported C:\wamp64\www\ejemplo\application\libraries\PHPExcel\Shared\String.php 526
+ERROR - 2024-01-18 21:00:41 --> Severity: error --> Exception: Class "Border" not found C:\wamp64\www\ejemplo\application\controllers\Admin.php 665
+ERROR - 2024-01-18 21:03:55 --> Severity: error --> Exception: Class "PHPExcel_Style_Border" not found C:\wamp64\www\ejemplo\application\controllers\Admin.php 665
+ERROR - 2024-01-18 21:03:56 --> Severity: error --> Exception: Class "PHPExcel_Style_Border" not found C:\wamp64\www\ejemplo\application\controllers\Admin.php 665
+ERROR - 2024-01-18 21:03:57 --> Severity: error --> Exception: Class "PHPExcel_Style_Border" not found C:\wamp64\www\ejemplo\application\controllers\Admin.php 665
+ERROR - 2024-01-18 21:03:57 --> Severity: error --> Exception: Class "PHPExcel_Style_Border" not found C:\wamp64\www\ejemplo\application\controllers\Admin.php 665
+ERROR - 2024-01-18 21:03:57 --> Severity: error --> Exception: Class "PHPExcel_Style_Border" not found C:\wamp64\www\ejemplo\application\controllers\Admin.php 665
+ERROR - 2024-01-18 21:03:58 --> Severity: error --> Exception: Class "PHPExcel_Style_Border" not found C:\wamp64\www\ejemplo\application\controllers\Admin.php 665
+ERROR - 2024-01-18 21:03:58 --> Severity: error --> Exception: Class "PHPExcel_Style_Border" not found C:\wamp64\www\ejemplo\application\controllers\Admin.php 665
+ERROR - 2024-01-18 21:03:58 --> Severity: error --> Exception: Class "PHPExcel_Style_Border" not found C:\wamp64\www\ejemplo\application\controllers\Admin.php 665
+ERROR - 2024-01-18 21:07:59 --> Severity: error --> Exception: Class "PageSetup" not found C:\wamp64\www\ejemplo\application\controllers\Admin.php 666
+ERROR - 2024-01-18 21:08:31 --> Severity: error --> Exception: Class "Border" not found C:\wamp64\www\ejemplo\application\controllers\Admin.php 665
+ERROR - 2024-01-18 21:08:35 --> Severity: error --> Exception: Class "Border" not found C:\wamp64\www\ejemplo\application\controllers\Admin.php 665
+ERROR - 2024-01-18 21:08:35 --> Severity: error --> Exception: Class "Border" not found C:\wamp64\www\ejemplo\application\controllers\Admin.php 665
+ERROR - 2024-01-18 21:08:36 --> Severity: error --> Exception: Class "Border" not found C:\wamp64\www\ejemplo\application\controllers\Admin.php 665
+ERROR - 2024-01-18 21:08:36 --> Severity: error --> Exception: Class "Border" not found C:\wamp64\www\ejemplo\application\controllers\Admin.php 665
+ERROR - 2024-01-18 21:09:44 --> Severity: error --> Exception: Class "PageSetup" not found C:\wamp64\www\ejemplo\application\controllers\Admin.php 673
+ERROR - 2024-01-18 21:12:34 --> Severity: Warning --> Undefined array key "select_excel" C:\wamp64\www\ejemplo\application\controllers\Admin.php 581
+ERROR - 2024-01-18 21:12:34 --> Severity: Warning --> Trying to access array offset on value of type null C:\wamp64\www\ejemplo\application\controllers\Admin.php 581
+ERROR - 2024-01-18 21:12:37 --> Severity: Warning --> Undefined array key "select_excel" C:\wamp64\www\ejemplo\application\controllers\Admin.php 581
+ERROR - 2024-01-18 21:12:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\wamp64\www\ejemplo\application\controllers\Admin.php 581
+ERROR - 2024-01-18 21:12:54 --> Severity: Warning --> Undefined array key "select_excel" C:\wamp64\www\ejemplo\application\controllers\Admin.php 581
+ERROR - 2024-01-18 21:12:54 --> Severity: Warning --> Trying to access array offset on value of type null C:\wamp64\www\ejemplo\application\controllers\Admin.php 581
+ERROR - 2024-01-18 21:13:16 --> Severity: Warning --> Undefined array key "select_excel" C:\wamp64\www\ejemplo\application\controllers\Admin.php 581
+ERROR - 2024-01-18 21:13:16 --> Severity: Warning --> Trying to access array offset on value of type null C:\wamp64\www\ejemplo\application\controllers\Admin.php 581
+ERROR - 2024-01-18 21:36:59 --> Severity: Warning --> Undefined variable $row C:\wamp64\www\ejemplo\application\views\compracliente.php 40
+ERROR - 2024-01-18 21:36:59 --> Severity: Warning --> Trying to access array offset on value of type null C:\wamp64\www\ejemplo\application\views\compracliente.php 40
+ERROR - 2024-01-18 21:36:59 --> Severity: Warning --> Undefined variable $row C:\wamp64\www\ejemplo\application\views\compracliente.php 41
+ERROR - 2024-01-18 21:36:59 --> Severity: Warning --> Trying to access array offset on value of type null C:\wamp64\www\ejemplo\application\views\compracliente.php 41

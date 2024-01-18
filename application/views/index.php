@@ -137,10 +137,7 @@ $(document).ready(function(){
 					icon: "success"
 							});
 				break;
-
-				
 			}
-		
       }
     })
   });
@@ -148,6 +145,14 @@ $(document).ready(function(){
 
 function importarprueba()
 {
-	alerta('entra');
+	$.ajax({
+		type: "POST",
+		url: "<?php echo base_url() ?>/admin/service_export",
+		processData: false,
+		contentType: false,
+		success: function (data) {
+			console.log(data);
+		},
+	});
 }
 </script>
