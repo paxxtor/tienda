@@ -593,29 +593,44 @@ public function upload() {
     $spreadsheet = $reader->load($path);
     // $object = IOFactory::load($path);
     // $worksheet = $spreadsheet->getActiveSheet();
+    $numDuplicate = 0;
+    $productInsert = 0;
+        
+        foreach($spreadsheet->getWorksheetIterator() as $worksheet){
+            $highestRow = $worksheet->getHighestRow();
+            $highestColumn = $worksheet->getHighestColumn();
+            
+            for($row=8; $row <= $highestRow; $row++){
+                $this->db->where('codigo',$worksheet->getCellByColumnAndRow(3, $row)->getValue());
+                $Duplicate  = $this->db->get('productos')->num_rows();
+                if($Duplicate>0) $numDuplicate += $Duplicate;
+                else{ $productInsert += 1;
+                $data = [
+                    'nombre' =>  $worksheet->getCellByColumnAndRow(1, $row)->getValue(),
+                    'cantidad' =>   $worksheet->getCellByColumnAndRow(2, $row)->getValue(),
+                    'codigo'  =>    $worksheet->getCellByColumnAndRow(3, $row)->getValue(),
+                    'id_categoria' =>    $worksheet->getCellByColumnAndRow(4, $row)->getValue(),
+                    'fotografia' =>    $worksheet->getCellByColumnAndRow(5, $row)->getValue(),
+                    'descripcion' =>    $worksheet->getCellByColumnAndRow(6, $row)->getValue(),
+                    'precioventa' =>    $worksheet->getCellByColumnAndRow(7, $row)->getValue(),
+                    'preciocosto' =>    $worksheet->getCellByColumnAndRow(8, $row)->getValue(),
+                    'id_proveedor' =>    $worksheet->getCellByColumnAndRow(9, $row)->getValue(),
+                    'estado' =>    $worksheet->getCellByColumnAndRow(10, $row)->getValue(),
+                ];
+                $this->db->insert('productos',$data);
+            }
+        }
+    }
     
-    // foreach($spreadsheet->getWorksheetIterator() as $worksheet){
-    // $highestRow = $worksheet->getHighestRow();
-    // $highestColumn = $worksheet->getHighestColumn();
-
-    // for($row=8; $row <= $highestRow; $row++){
-    //     $data = array(
-    //         'nombre' =>  $worksheet->getCellByColumnAndRow(0, $row)->getValue(), 
-    //         'cantidad' =>   $worksheet->getCellByColumnAndRow(1, $row)->getValue(),
-    //         'codigo'  =>    $worksheet->getCellByColumnAndRow(2, $row)->getValue(),
-    //         'id_categoria' =>    $worksheet->getCellByColumnAndRow(3, $row)->getValue(),
-    //         'fotografia' =>    $worksheet->getCellByColumnAndRow(4, $row)->getValue(),
-    //         'descripcion' =>    $worksheet->getCellByColumnAndRow(5, $row)->getValue(),
-    //         'precioventa' =>    $worksheet->getCellByColumnAndRow(6, $row)->getValue(),
-    //         'preciocosto' =>    $worksheet->getCellByColumnAndRow(7, $row)->getValue(),
-    //         'id_proveedor' =>    $worksheet->getCellByColumnAndRow(8, $row)->getValue(),
-    //         'estado' =>    $worksheet->getCellByColumnAndRow(9, $row)->getValue(),
-    //     );
-    // }
-    // }
+    $array = [
+        'name' => 'insertWithDuplicate',
+        'totalDuplicates'=> $numDuplicate,
+        'totalInsert' => $productInsert
+    ];
     
-    $message = $name;
-    // $this->db->insert('productos',$data);
+    // $message = $numDuplicate;
+    // $message = $name;
+    // $this->db->insert('productos',$data);    
 
 
     //   $writer = IOFactory::createWriter($spreadsheet, 'Html');
@@ -623,18 +638,18 @@ public function upload() {
     }
     else
     {
-    $message = '<div class="alert alert-danger">Only .xls or .xlsx file allowed</div>';
+    // $message = '<div class="alert alert-danger">Only .xls or .xlsx file allowed</div>';
+    $array = ['name' =>  'fileExtensionError'];
     }
 }
 else
 {
- $message = '<div class="alert alert-danger">Please Select File</div>';
+//  $message = '<div class="alert alert-danger">Please Select File</div>';
+    $array = ['name' => 'fileNotFound'];
 }
 
-echo $message;
+echo $message = json_encode($array);
 }
-
-
 
 // function export_table(){
 //     // call the autoload
@@ -736,44 +751,44 @@ echo $message;
     
     // }
 
-    function service_import()
-    {
-        $this->load->library('excel');
-        $md5 = md5(date('d-m-Y H:i:s'));
-        $name = $md5.str_replace(' ', '', $_FILES['files']['name']);
-        // $type = 2;
+    // function service_import()
+    // {
+    //     $this->load->library('excel');
+    //     $md5 = md5(date('d-m-Y H:i:s'));
+    //     $name = $md5.str_replace(' ', '', $_FILES['files']['name']);
+    //     // $type = 2;
         
-        if($_FILES['files']['name'] != ''){
-            $data['file']              = $name;
-            move_uploaded_file($_FILES['files']['tmp_name'], 'public/uploads/import/' . $name);
-        }
-                $path = 'public/uploads/import/' . $name;
-                $object = PHPExcel_IOFactory::load($path);
-                foreach($object->getWorksheetIterator() as $worksheet)
-                {
-                    $highestRow = $worksheet->getHighestRow();
-                    $highestColumn = $worksheet->getHighestColumn();
+    //     if($_FILES['files']['name'] != ''){
+    //         $data['file']              = $name;
+    //         move_uploaded_file($_FILES['files']['tmp_name'], 'public/uploads/import/' . $name);
+    //     }
+    //             $path = 'public/uploads/import/' . $name;
+    //             $object = PHPExcel_IOFactory::load($path);
+    //             foreach($object->getWorksheetIterator() as $worksheet)
+    //             {
+    //                 $highestRow = $worksheet->getHighestRow();
+    //                 $highestColumn = $worksheet->getHighestColumn();
                 
-                    for($row=8; $row <= $highestRow; $row++)
-                    {
-                    // log_message('error',)
-                    $data = array(
-                        'nombre' =>   $worksheet->getCellByColumnAndRow(0, $row)->getValue(),
-                        'cantidad' =>   $worksheet->getCellByColumnAndRow(1, $row)->getValue(),
-                        'codigo'  =>    $worksheet->getCellByColumnAndRow(2, $row)->getValue(),
-                        'id_categoria' =>    $worksheet->getCellByColumnAndRow(3, $row)->getValue(),
-                        'fotografia' =>    $worksheet->getCellByColumnAndRow(4, $row)->getValue(),
-                        'descripcion' =>    $worksheet->getCellByColumnAndRow(5, $row)->getValue(),
-                        'precioventa' =>    $worksheet->getCellByColumnAndRow(6, $row)->getValue(),
-                        'preciocosto' =>    $worksheet->getCellByColumnAndRow(7, $row)->getValue(),
-                        'id_proveedor' =>    $worksheet->getCellByColumnAndRow(8, $row)->getValue(),
-                        'estado' =>    $worksheet->getCellByColumnAndRow(9, $row)->getValue(),
-                    );
+    //                 for($row=8; $row <= $highestRow; $row++)
+    //                 {
+    //                 // log_message('error',)
+    //                 $data = array(
+    //                     'nombre' =>   $worksheet->getCellByColumnAndRow(0, $row)->getValue(),
+    //                     'cantidad' =>   $worksheet->getCellByColumnAndRow(1, $row)->getValue(),
+    //                     'codigo'  =>    $worksheet->getCellByColumnAndRow(2, $row)->getValue(),
+    //                     'id_categoria' =>    $worksheet->getCellByColumnAndRow(3, $row)->getValue(),
+    //                     'fotografia' =>    $worksheet->getCellByColumnAndRow(4, $row)->getValue(),
+    //                     'descripcion' =>    $worksheet->getCellByColumnAndRow(5, $row)->getValue(),
+    //                     'precioventa' =>    $worksheet->getCellByColumnAndRow(6, $row)->getValue(),
+    //                     'preciocosto' =>    $worksheet->getCellByColumnAndRow(7, $row)->getValue(),
+    //                     'id_proveedor' =>    $worksheet->getCellByColumnAndRow(8, $row)->getValue(),
+    //                     'estado' =>    $worksheet->getCellByColumnAndRow(9, $row)->getValue(),
+    //                 );
             
-                    $this->db->insert('productos',$data);
-                    // $product_id = $this->db->insert_id();
-                    }
-                }
-                unlink('public/uploads/import/' . $name);
-    }
+    //                 $this->db->insert('productos',$data);
+    //                 // $product_id = $this->db->insert_id();
+    //                 }
+    //             }
+    //             unlink('public/uploads/import/' . $name);
+    // }
 }

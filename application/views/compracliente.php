@@ -17,7 +17,7 @@
 
 <div class="container">
       <br />
-      <h3 align="center">Load Excel Sheet in Browser using PHPSpreadsheet</h3>
+      <h3 align="center">Subir Productos por medio de Excel</h3>
       <br />
       <div class="table-responsive">
        <span id="message"></span>
@@ -34,5 +34,4 @@
           <div id="excel_area"></div>
       </div>
      </div>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
  

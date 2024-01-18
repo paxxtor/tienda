@@ -100,10 +100,54 @@ $(document).ready(function(){
       processData:false,
       success:function(data)
       {
-        $('#excel_area').html(data);
-        $('table').css('width','100%');
+		data = JSON.parse(data);
+		console.log(data);
+        // $('#excel_area').html(data);
+        // $('table').css('width','100%');
+
+
+			switch(data['name']){
+				case 'fileNotFound':
+					Swal.fire({
+					title: "Alerta",
+					text: "No se ha subido ningún documento Excel",
+					icon: "warning"
+							});
+					break;
+				case 'fileExtensionError':
+					Swal.fire({
+					title: "Formato incorrecto",
+					text: "Solamente archivos .xls o xlsx permitidos",
+					icon: "warning"
+							});
+				break;
+
+				case 'insertProductSuccess':
+					Swal.fire({
+					title: "Productos Guardados",
+					text: "Se han insertado los productos correctamente",
+					icon: "warning"
+							});
+				break;
+
+				case 'insertWithDuplicate':
+					Swal.fire({
+					title: "Producto Duplicado",
+					html: "Productos Duplicados: "+data['totalDuplicates']+"<br>Productos Insertados: "+data['totalInsert'],
+					icon: "success"
+							});
+				break;
+
+				
+			}
+		
       }
     })
   });
 });
+
+function importarprueba()
+{
+	alerta('entra');
+}
 </script>
