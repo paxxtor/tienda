@@ -100,12 +100,12 @@ $(document).ready(function(){
       processData:false,
       success:function(data)
       {
-		data = JSON.parse(data);
-		console.log(data);
+		  
+		  data = JSON.parse(data);
+		  console.log(data);
         // $('#excel_area').html(data);
         // $('table').css('width','100%');
-
-
+		
 			switch(data['name']){
 				case 'fileNotFound':
 					Swal.fire({
@@ -132,8 +132,8 @@ $(document).ready(function(){
 
 				case 'insertWithDuplicate':
 					Swal.fire({
-					title: "Producto Duplicado",
-					html: "Productos Duplicados: "+data['totalDuplicates']+"<br>Productos Insertados: "+data['totalInsert'],
+					title: "",
+					html: "Productos Actualizados: "+data['totalDuplicates']+"<br>Productos Insertados: "+data['totalInsert'],
 					icon: "success"
 							});
 				break;

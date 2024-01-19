@@ -10,31 +10,30 @@
                   </tr>
                 </thead>
                 <tbody>
-
                 </tbody>
               </table>
 </div>
 
-<div class="container">
-      <br />
-      <h3 align="center">Subir Productos por medio de Excel</h3>
-      <br />
-      <div class="table-responsive">
-       <span id="message"></span>
-          <form method="post" id="load_excel_form" enctype="multipart/form-data">
-            <table class="table">
-              <tr>
-                <td width="25%" align="right">Buscar Excel: </td>
-                <td width="50%"><input type="file" name="select_excel" /></td>
-                <td width="25%"><input type="submit" name="load" value="Importar" class="btn btn-primary" /></td>
-              </tr>
-            </table>
-          </form>
-      </div>
-     </div>
+<div class="container mt-4 ">
+  <h3>Subir Productos por medio de Excel</h3>
+  <div class="table-responsive">
+    <span id="message"></span>
+      <form method="post" id="load_excel_form" enctype="multipart/form-data">
+        <table class="table">
+          <tr>
+            <td width="25%" class="fs-6 col-1 ">Buscar Excel: </td>
+            <td width="20%"><input type="file" class="form-control" name="select_excel"  /></td>
+            <td width="25%"><input type="submit" name="load" value="Importar" class="btn btn-primary" /></td>
+          </tr>
+        </table>
+      </form>
+  </div>
+  </div>
  
 
 <form action="<?php echo base_url() ?>/admin/service_export" method="post">
+    <div class =" container d-flex">
+    <div class="col-2 mx-2"> 
     <select name="tipocliente" class="form-control" required>
       <option value="">Seleccionar</option>
       <option value="productos">Productos</option>
@@ -42,5 +41,9 @@
       <option value="2">Proveedores</option>
       <option value="3">Usuario</option>
     </select>
-    <button type="submit">Exportar</button>
+    </div>
+    <div class="col-5">
+    <button type="submit" class="btn btn-warning mx-2 ">Exportar</button>
+    </div>
+    </div>
 </form>
