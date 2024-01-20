@@ -574,6 +574,16 @@ function productojq($param1 = '',$param2=''){
     }
 }
 
+public function messageError($numcolumns,$row){
+    $array = [
+        'name' => 'dataError',
+        'column' => chr($numcolumns + 64 ),
+        'row' => $row
+    ];
+    echo json_encode($array);
+    exit();
+}
+
 public function upload() {
     
     if($_FILES["select_excel"]["name"] != '')
@@ -599,19 +609,23 @@ public function upload() {
             $highestRow = $worksheet->getHighestRow();
             $highestColumn = $worksheet->getHighestColumn();
             for($row=8; $row <= $highestRow; $row++){
-                
                 $this->db->where('codigo',$worksheet->getCellByColumnAndRow(3, $row)->getValue());
                 $Duplicate  = $this->db->get('productos')->num_rows();
+                $categoriaresult = $this->db->get_where('categoria', array('nombre' => $worksheet->getCellByColumnAndRow(4, $row)->getValue()));
+                $categoriaresult->num_rows() > 0 ? $id_categoria = $categoriaresult->row()->id_categoria: $this->messageError(4,$row);
+                $proveedoresresult = $this->db->get_where('proveedores', array('nombreempresa' => $worksheet->getCellByColumnAndRow(9, $row)->getValue()));
+                $proveedoresresult->num_rows() > 0 ? $id_proveedor = $proveedoresresult->row()->id_proveedor : $this->messageError(9,$row);
+                
                 $data = [
                     'nombre' =>  $worksheet->getCellByColumnAndRow(1, $row)->getValue(),
                     'cantidad' =>   $worksheet->getCellByColumnAndRow(2, $row)->getValue(),
                     'codigo'  =>    $worksheet->getCellByColumnAndRow(3, $row)->getValue(),
-                    'id_categoria' => (!empty($worksheet->getCellByColumnAndRow(4, $row)->getValue())) ? $this->db->get_where('categoria', array('nombre' => $worksheet->getCellByColumnAndRow(4, $row)->getValue()))->row()->id_categoria : null,
+                    'id_categoria' => $id_categoria,
                     'fotografia' =>    $worksheet->getCellByColumnAndRow(5, $row)->getValue(),
                     'descripcion' =>    $worksheet->getCellByColumnAndRow(6, $row)->getValue(),
                     'precioventa' =>    $worksheet->getCellByColumnAndRow(7, $row)->getValue(),
                     'preciocosto' =>    $worksheet->getCellByColumnAndRow(8, $row)->getValue(),
-                    'id_proveedor' =>   (!empty($worksheet->getCellByColumnAndRow(9, $row)->getValue())) ? $this->db->get_where('proveedores', array('nombreempresa' => $worksheet->getCellByColumnAndRow(9, $row)->getValue()))->row()->id_proveedor : null,
+                    'id_proveedor' =>   $id_proveedor,
                     'estado' =>    $worksheet->getCellByColumnAndRow(10, $row)->getValue(),
                 ];
                 $numcolumns = 1;
@@ -619,12 +633,13 @@ public function upload() {
                     if (empty($valor)) {
                         $array = [
                             'name' => 'cellEmpty',
+                            'valor' => $valor,
                             'column' => chr($numcolumns + 64 ),
                             'row' => $row
                         ];
                         echo json_encode($array);
                         exit();
-                    } 
+                    }
                     $numcolumns++;
                 }
 

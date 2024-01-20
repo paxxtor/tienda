@@ -101,8 +101,8 @@ $(document).ready(function(){
       success:function(data)
       {
 		console.log(data);
-		  
-		  data = JSON.parse(data);
+		data = JSON.parse(data);
+
         // $('#excel_area').html(data);
         // $('table').css('width','100%');
 		
@@ -141,6 +141,13 @@ $(document).ready(function(){
 					Swal.fire({
 					title: "Una o más celdas obligatorias estan vacias",
 					html: "No se lograron insertar o actualizar todos los datos <br>Celda Vacia: "+data['column']+data['row'] ,
+					icon: "error"
+							});
+				break;
+				case 'dataError':
+					Swal.fire({
+					title: "Error al ingresar o actualizar",
+					html: "Verifique el ingreso de datos <br>Celda: "+data['column']+data['row'] ,
 					icon: "error"
 							});
 				break;
