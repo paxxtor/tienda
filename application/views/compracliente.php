@@ -22,7 +22,7 @@
         <table class="table">
           <tr>
             <td width="25%" class="fs-6 col-1 ">Buscar Excel: </td>
-            <td width="20%"><input type="file" class="form-control" name="select_excel"  /></td>
+            <td width="20%"><input type="file" class="form-control" accept=".xlsx" name="select_excel"  /></td>
             <td width="25%"><input type="submit" name="load" value="Importar" class="btn btn-primary" /></td>
           </tr>
         </table>

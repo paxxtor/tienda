@@ -1,0 +1,10 @@
+DMA - ERRORES DIARIO Y MAYOR CONSOLIDADO (Documento de texto)
+CoopeCredit - Bancos en CoopeCredit, reporte en excel (Pendiente)
+Foodby Demo - Revisar errores
+
+Mr. Admin: Ha creado una partida con id: 188, con la información: {"date":"2022-10-05","datetime":"2022-10-05 10:41:57","amount":200,"iva":"","isr":"","total":"200.00","regime":null,"details":"Por ventas en tienda deposito","admin_id":"1","code":"000000000188"}.
+
+
+Link de acceso: https://mayansource.com/creditos/
+Usuario: luisguer
+Contraseña: #Primeracceso

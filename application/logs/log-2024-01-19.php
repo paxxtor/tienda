@@ -80,3 +80,13 @@ ERROR - 2024-01-19 23:17:53 --> Severity: error --> Exception: Call to undefined
 ERROR - 2024-01-19 23:18:03 --> Severity: error --> Exception: Call to undefined method PhpOffice\PhpSpreadsheet\Cell\Cell::isBlank() C:\wamp64\www\ejemplo\application\controllers\Admin.php 612
 ERROR - 2024-01-19 23:23:24 --> Severity: error --> Exception: syntax error, unexpected variable "$reader" C:\wamp64\www\ejemplo\application\controllers\Admin.php 592
 ERROR - 2024-01-19 23:23:32 --> Severity: error --> Exception: syntax error, unexpected variable "$reader" C:\wamp64\www\ejemplo\application\controllers\Admin.php 592
+ERROR - 2024-01-19 23:36:32 --> Severity: Warning --> Undefined variable $row C:\wamp64\www\ejemplo\application\controllers\Admin.php 602
+ERROR - 2024-01-19 23:36:32 --> Severity: error --> Exception: Invalid cell coordinate A C:\wamp64\www\ejemplo\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\Coordinate.php 43
+ERROR - 2024-01-19 23:39:25 --> Severity: Warning --> Array to string conversion C:\wamp64\www\ejemplo\application\controllers\Admin.php 604
+ERROR - 2024-01-19 23:40:59 --> Severity: Warning --> Array to string conversion C:\wamp64\www\ejemplo\application\controllers\Admin.php 604
+ERROR - 2024-01-19 23:50:42 --> Severity: Warning --> Undefined variable $nombre C:\wamp64\www\ejemplo\application\controllers\Admin.php 606
+ERROR - 2024-01-19 23:50:42 --> Severity: error --> Exception: Unsupported operand types: string + null C:\wamp64\www\ejemplo\application\controllers\Admin.php 621
+ERROR - 2024-01-19 23:50:58 --> Severity: Warning --> Undefined variable $nombre C:\wamp64\www\ejemplo\application\controllers\Admin.php 606
+ERROR - 2024-01-19 23:51:16 --> Severity: Warning --> Undefined variable $nombre C:\wamp64\www\ejemplo\application\controllers\Admin.php 606
+ERROR - 2024-01-19 23:52:52 --> Severity: Warning --> Undefined variable $nombre C:\wamp64\www\ejemplo\application\controllers\Admin.php 606
+ERROR - 2024-01-19 23:58:46 --> Severity: Warning --> Undefined variable $nombre C:\wamp64\www\ejemplo\application\controllers\Admin.php 606

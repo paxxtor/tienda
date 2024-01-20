@@ -598,28 +598,41 @@ public function upload() {
         foreach($spreadsheet->getWorksheetIterator() as $worksheet){
             $highestRow = $worksheet->getHighestRow();
             $highestColumn = $worksheet->getHighestColumn();
-            
             for($row=8; $row <= $highestRow; $row++){
+                
                 $this->db->where('codigo',$worksheet->getCellByColumnAndRow(3, $row)->getValue());
                 $Duplicate  = $this->db->get('productos')->num_rows();
                 $data = [
                     'nombre' =>  $worksheet->getCellByColumnAndRow(1, $row)->getValue(),
                     'cantidad' =>   $worksheet->getCellByColumnAndRow(2, $row)->getValue(),
                     'codigo'  =>    $worksheet->getCellByColumnAndRow(3, $row)->getValue(),
-                    'id_categoria' => $this->db->get_where('categoria',array('nombre' => $worksheet->getCellByColumnAndRow(4, $row)->getValue()))->row()->id_categoria,
+                    'id_categoria' => (!empty($worksheet->getCellByColumnAndRow(4, $row)->getValue())) ? $this->db->get_where('categoria', array('nombre' => $worksheet->getCellByColumnAndRow(4, $row)->getValue()))->row()->id_categoria : null,
                     'fotografia' =>    $worksheet->getCellByColumnAndRow(5, $row)->getValue(),
                     'descripcion' =>    $worksheet->getCellByColumnAndRow(6, $row)->getValue(),
                     'precioventa' =>    $worksheet->getCellByColumnAndRow(7, $row)->getValue(),
                     'preciocosto' =>    $worksheet->getCellByColumnAndRow(8, $row)->getValue(),
-                    'id_proveedor' =>    $this->db->get_where('proveedores',array('nombreempresa' => $worksheet->getCellByColumnAndRow(9, $row)->getValue()))->row()->id_proveedor,
+                    'id_proveedor' =>   (!empty($worksheet->getCellByColumnAndRow(9, $row)->getValue())) ? $this->db->get_where('proveedores', array('nombreempresa' => $worksheet->getCellByColumnAndRow(9, $row)->getValue()))->row()->id_proveedor : null,
                     'estado' =>    $worksheet->getCellByColumnAndRow(10, $row)->getValue(),
                 ];
+                $numcolumns = 1;
+                foreach ($data as &$valor) {
+                    if (empty($valor)) {
+                        $array = [
+                            'name' => 'cellEmpty',
+                            'column' => chr($numcolumns + 64 ),
+                            'row' => $row
+                        ];
+                        echo json_encode($array);
+                        exit();
+                    } 
+                    $numcolumns++;
+                }
+
                 if($Duplicate>0)
                 {
                     $numUpdate += $Duplicate;
                     $this->db->where('codigo', $worksheet->getCellByColumnAndRow(3, $row)->getValue());
                     $this->db->update('productos',$data);
-                    
                 }
                 else{ $productInsert += 1;
                     $this->db->insert('productos',$data);

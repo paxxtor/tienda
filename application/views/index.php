@@ -100,9 +100,9 @@ $(document).ready(function(){
       processData:false,
       success:function(data)
       {
+		console.log(data);
 		  
 		  data = JSON.parse(data);
-		  console.log(data);
         // $('#excel_area').html(data);
         // $('table').css('width','100%');
 		
@@ -137,6 +137,14 @@ $(document).ready(function(){
 					icon: "success"
 							});
 				break;
+				case 'cellEmpty':
+					Swal.fire({
+					title: "Una o más celdas obligatorias estan vacias",
+					html: "No se lograron insertar o actualizar todos los datos <br>Celda Vacia: "+data['column']+data['row'] ,
+					icon: "error"
+							});
+				break;
+				
 			}
       }
     })
