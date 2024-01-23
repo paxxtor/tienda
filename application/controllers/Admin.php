@@ -723,4 +723,115 @@ function service_export()
         $writer->save('php://output');
         exit();
 }
+
+function facturasat($type_id,$nit,$cui,$name,$address,$item){
+        $institution_id = 1;
+        $invoice_id = $this->insert_invoice($type_id, $nit, $cui, $name, $address, $items);
+        $inv = $this->db->get_where('encabezado', array('id_encabezado'=>$invoice_id))->row_array();
+        $items = $this->db->get_where('detalleventa', array('id_encabezado'=>$invoice_id, 'estado'=>1))->result_array();
+       
+        $IDReceptor = '';
+        if ($type_id == "NIT") {
+            if($nit == '' || $name == ''){
+                $IDReceptor = 'CF';
+                $nombre = 'Consumidor Final';
+                $direccion = 'Ciudad';    
+            }else{
+                $IDReceptor = strtoupper(str_replace(' ', '', $nit));
+                $nombre     = trim($name);
+                $direccion  = trim($address);
+            }
+        } elseif ($type_id == "CUI") {
+            $IDReceptor = $cui;
+            $nombre     = trim($name);
+            $direccion  = trim($address);
+        }
+        if ($direccion == '') $direccion = "Ciudad";
+        $estab  = $this->db->get_where('institution', array('institution_id' => $institution_id))->row_array();
+        $nombre = str_replace('&', 'Y', $nombre);
+       
+        $xml= '<?xml version="1.0" encoding="utf-8"?>
+        <dte:GTDocumento xmlns:cex="http://www.sat.gob.gt/face2/ComplementoExportaciones/0.1.0"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:cfe="http://www.sat.gob.gt/face2/ComplementoFacturaEspecial/0.1.0"
+            xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:cfc="http://www.sat.gob.gt/dte/fel/CompCambiaria/0.1.0"
+            xmlns:cno="http://www.sat.gob.gt/face2/ComplementoReferenciaNota/0.1.0" Version="0.1"
+            xmlns:dte="http://www.sat.gob.gt/dte/fel/0.2.0">
+            <dte:SAT ClaseDocumento="dte">
+                <dte:DTE ID="DatosCertificados">
+                    <dte:DatosEmision ID="DatosEmision">
+                        <dte:DatosGenerales Tipo="FACT"
+                            FechaHoraEmision="'.date('Y').'-'.date('m').'-'.date('d').'T'.date('H').':'.date('i').':'.date('s').'"
+                            CodigoMoneda="GTQ" />
+                        <dte:Emisor NITEmisor="'.$estab['nit'].'"
+                            NombreEmisor="'.$estab['personal_name'].'"
+                            CodigoEstablecimiento="'.$estab['code'].'" NombreComercial="'.$estab['name'].'" AfiliacionIVA="'.$estab['afiliation'].'">
+                            <dte:DireccionEmisor>
+                                <dte:Direccion>'.strtoupper($estab['address']).'</dte:Direccion>
+                                <dte:CodigoPostal>'.$estab['postal_code'].'</dte:CodigoPostal>
+                                <dte:Municipio>'.strtoupper($estab['municipality']).'</dte:Municipio>
+                                <dte:Departamento>'.strtoupper($estab['department']).'</dte:Departamento>
+                                <dte:Pais>GT</dte:Pais>
+                            </dte:DireccionEmisor>
+                        </dte:Emisor>
+                        <dte:Receptor IDReceptor="'.$IDReceptor.'"';
+        if ($type_id == "CUI") $xml .= ' TipoEspecial="CUI"';
+        $xml .= ' NombreReceptor="'.$nombre.'">
+                            <dte:DireccionReceptor>
+                                <dte:Direccion>'.$direccion.'</dte:Direccion>
+                                <dte:CodigoPostal>01000</dte:CodigoPostal>
+                                <dte:Municipio>Guatemala</dte:Municipio>
+                                <dte:Departamento>Guatemala</dte:Departamento>
+                                <dte:Pais>GT</dte:Pais>
+                            </dte:DireccionReceptor>
+                        </dte:Receptor>
+                        <dte:Frases>
+                            <dte:Frase TipoFrase="1" CodigoEscenario="1"/>
+                        </dte:Frases>
+                        <dte:Items>';
+                            $totalImpuesto = 0;
+                            $GranTotal     = 0;
+                            $n             = 1;
+                            foreach($items as $key)
+                            {
+                                $regimen = 12/100;
+                                $totalp  = $key['price']*$key['amount'];
+                                $totald  = ($key['price']*$key['amount'])-$key['discount'];
+                                $montoGravable = number_format($totald/($regimen + 1), 6, ".", "");
+                                $montoImpuesto = number_format($montoGravable*$regimen, 6, ".", "");
+                                $totalImpuesto += $montoImpuesto;
+                                $GranTotal += $montoGravable + $montoImpuesto;
+                                $xml.='<dte:Item NumeroLinea="'.$n++.'" BienOServicio="'.$key['type'].'">
+                                    <dte:Cantidad>'.rtrim($key['amount']).'</dte:Cantidad>
+                                    <dte:UnidadMedida>UNI</dte:UnidadMedida>
+                                    <dte:Descripcion>'.rtrim($key['description']).'</dte:Descripcion>
+                                    <dte:PrecioUnitario>'.rtrim(number_format($key['price'], 6, ".", "")).'</dte:PrecioUnitario>
+                                    <dte:Precio>'.rtrim(number_format($totalp, 6, ".", "")).'</dte:Precio>
+                                    <dte:Descuento>'.rtrim(number_format($key['discount'], 6, ".", "")).'</dte:Descuento>
+                                    <dte:Impuestos>
+                                        <dte:Impuesto>
+                                            <dte:NombreCorto>IVA</dte:NombreCorto>
+                                            <dte:CodigoUnidadGravable>1</dte:CodigoUnidadGravable>
+                                            <dte:MontoGravable>'.rtrim($montoGravable).'</dte:MontoGravable>
+                                            <dte:MontoImpuesto>'.rtrim($montoImpuesto).'</dte:MontoImpuesto>
+                                        </dte:Impuesto>
+                                    </dte:Impuestos>
+                                    <dte:Total>'.rtrim(number_format($totald, 6, ".", "")).'</dte:Total>
+                                </dte:Item>';
+                            }
+                            $xml.='</dte:Items>
+                        <dte:Totales>
+                            <dte:TotalImpuestos>
+                                <dte:TotalImpuesto NombreCorto="IVA" TotalMontoImpuesto="'.rtrim(number_format($totalImpuesto, 6, ".", "")).'"/>
+                            </dte:TotalImpuestos>
+                            <dte:GranTotal>'.rtrim(number_format($GranTotal, 6, ".", "")).'</dte:GranTotal>
+                        </dte:Totales>
+                    </dte:DatosEmision>
+                </dte:DTE>
+            </dte:SAT>
+        </dte:GTDocumento>';
+        log_message("error", $xml);
+        $response = $this->newDocument($xml);
+}
+
 }
