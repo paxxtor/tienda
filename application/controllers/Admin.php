@@ -724,11 +724,82 @@ function service_export()
         exit();
 }
 
-function facturasat($type_id,$nit,$cui,$name,$address,$item){
+function makeinvoice($id_persona = '2',$id_encabezado="23"){
+    $this->db->select('*');
+    $this->db->from('encabezado');
+    $this->db->join('clientes','clientes.id_cliente = encabezado.id_persona', 'inner');
+    $this->db->where('id_persona',$id_persona);
+    $this->db->where('id_encabezado',$id_encabezado);
+    $headerfact = $this->db->get()->row_array();
+    // echo json_encode($headerfact);
+    $name = $headerfact['nombre']." ".$headerfact['apellido'];
+    $address = $headerfact['direccionfacturacion'];
+    // $nit = $headerfact['nit'];
+    $nit = '';
+    $cui = '';
+    $type_id = 'NIT';
+    $items = $this->db->get_where('detalleventa',array('id_encabezado'=>$id_encabezado))->result_array();
+    // $items = $detailsfact;
+
+    $this->facturasat($type_id ,$nit,$cui,$name,$address,$items);
+}
+
+
+function insert_invoice($type_id, $nit, $cui, $name, $address, $items) {
+    $total = 0; $total_iva = 0;
+    $data['day']   = date('d');
+    $data['month'] = date('m');
+    $data['year']  = date('Y');
+    if ($type_id == "CUI") $data['cui'] = $cui;
+    else $data['nit'] = $nit;
+    $data['name']  = $name;
+    $data['address'] = $address;
+    $data['institution_id'] = 1;
+    $this->db->insert('invoice', $data);
+    $invoice_id = $this->db->insert_id();
+    
+    // $details = json_decode($items, true);
+    $details = $items;
+
+    foreach ($details as $item) {
+        $number = 1; $discount = 0; $iva = 0;
+        $subtotal = $item['cantidad'] * $item['precio'];
+        $cost = $subtotal / 1.12;
+        $iva = $cost * 0.12;
+        $total += $subtotal; $total_iva += $iva;
+        
+        $data_det['invoice_id']  = $invoice_id;
+        $data_det['number']      = $number;
+        $data_det['type']        = 'S';
+        $data_det['amount']      = $item['cantidad'];
+        // $data_det['description'] = $item['description'];
+        $data_det['description'] = "descripcion";
+        $data_det['price']       = $item['precio'];
+        $data_det['discount']    = $discount;
+        $data_det['iva']         = $iva;
+        $data_det['cost']        = $cost;
+        $data_det['subtotal']    = $subtotal;
+        $this->db->insert('invoice_detail', $data_det);
+        $number++;
+    }
+    
+    $data_upd['total'] = $total;
+    $data_upd['iva']   = $total_iva;
+    $this->db->where('invoice_id', $invoice_id);
+    $this->db->update('invoice', $data_upd);
+    return $invoice_id;
+}
+
+
+function facturasat($type_id, $nit, $cui, $name, $address, $items){
         $institution_id = 1;
+
         $invoice_id = $this->insert_invoice($type_id, $nit, $cui, $name, $address, $items);
-        $inv = $this->db->get_where('encabezado', array('id_encabezado'=>$invoice_id))->row_array();
-        $items = $this->db->get_where('detalleventa', array('id_encabezado'=>$invoice_id, 'estado'=>1))->result_array();
+        $inv = $this->db->get_where('invoice', array('invoice_id'=>$invoice_id))->row_array();
+        $items = $this->db->get_where('invoice_detail', array('invoice_id'=>$invoice_id, 'status'=>1))->result_array();
+
+        echo json_encode($inv);
+        echo json_encode($items);
        
         $IDReceptor = '';
         if ($type_id == "NIT") {
@@ -832,6 +903,99 @@ function facturasat($type_id,$nit,$cui,$name,$address,$item){
         </dte:GTDocumento>';
         log_message("error", $xml);
         $response = $this->newDocument($xml);
+}
+
+public function newDocument($document)
+{
+    // $fel = $this->crud_model->getInfo("fel");
+    // if ($fel) {
+    //     $link = "https://app.corposistemasgt.com/webservicefront/factwsfront.asmx?WSDL";
+    //     $Entity      = $this->crud_model->getInfo("entity"); //es la variable del nit del emisor de la factura.
+    //     $Requestor   = $this->crud_model->getInfo("requestor"); //es la variable del requestor asignado 
+    // } else {
+        // $link = "https://app.corposistemasgt.com/webservicefrontTEST/factwsfront.asmx?WSDL";
+        // $Entity      = $this->crud_model->getInfo("entity_test"); //es la variable del nit del emisor de la factura.
+        // $Requestor   = $this->crud_model->getInfo("requestor_test"); //es la variable del requestor asignado 
+        $link = "https://app.corposistemasgt.com/webservicefrontTEST/factwsfront.asmx?WSDL";
+        $Entity      = '50206109'; //es la variable del nit del emisor de la factura.
+        $Requestor   = '4379A29A-C438-43D7-8DE5-57DB732D49C6'; //es la variable del requestor asignado 
+    // }
+    log_message("error", "Link: $link, Entity: $Entity, Requestor: $Requestor");
+    //CERTIFICAR UNA FACTURA CON SAT
+    $Data1       = "POST_DOCUMENT_SAT";
+    $xml         = base64_encode($document);
+    $url_ws      = $link;
+    $retornar    = array();
+    $UserName    = 'ADMINISTRADOR'; //es la variable del usuario para certificar el documento
+    $fecha       = new DateTime();
+    $fecha_d_m_y = $fecha->format('dd-m-yyyy-HH-mm-ss');                                  
+    $Data3       = $fecha_d_m_y."-msbox";
+    require_once('public/soap/lib/nusoap.php');
+    $client      = new nusoap_client($url_ws,true);
+    $err         = $client->getError();
+    if ($err) {
+        log_message("error", "Constructor error: $err");
+        // echo '<h2>Constructor error</h2>' . $err;
+        exit();
+    }
+    try {
+        $response = $client->call('RequestTransaction', array(
+            'Requestor'     => $Requestor,
+            'Transaction'   => "SYSTEM_REQUEST",
+            'Country'       => "GT",
+            'Entity'        => $Entity,
+            'User'          => $Requestor,
+            'UserName'      => $UserName,
+            'Data1'         => $Data1,
+            'Data2'         => $xml,
+            'Data3'         => $Data3
+        ));
+        if ($client->fault) {
+            $retornar['Fallo'] = $retornar;
+            log_message("error", "$response<- response");
+            // echo($response."<- response");
+        } else {
+            $retornar['Response'] = $response;	
+            $Result=$response['RequestTransactionResult']['Response']['Result'];
+            if($Result=='false')
+            {           
+                $TimeStamp=$response['RequestTransactionResult']['Response']['TimeStamp'];
+                $LastResult=$response['RequestTransactionResult']['Response']['LastResult'];
+                $Code= $response['RequestTransactionResult']['Response']['Code'];
+                $Description=$response['RequestTransactionResult']['Response']['Description'];
+                $Hint=$response['RequestTransactionResult']['Response']['Hint'];
+                $Data=$response['RequestTransactionResult']['Response']['Data'];
+                log_message("error", "ERROR SAT: $Data $Description");
+                // echo 'ERROR: ' .$Data."  ".$Description;
+                $retornar['Data']= $Data;
+            }
+            else {
+                $Description= $response['RequestTransactionResult']['Response']['Description'];
+                $Batch=$response['RequestTransactionResult']['Response']['Identifier']['Batch'];
+                $Serial=$response['RequestTransactionResult']['Response']['Identifier']['Serial'];
+                $DocumentGUID=$response['RequestTransactionResult']['Response']['Identifier']['DocumentGUID'];
+                $TimeStamp=$response['RequestTransactionResult']['Response']['TimeStamp'];
+                $retornar = array(
+                    'Batch' => $Batch,
+                    'Serial' => $Serial,
+                    'Guid' => $DocumentGUID,
+                    'Description' => $Description,
+                    'TimeStamp' => $TimeStamp,
+                    'BaseXML' => $response['RequestTransactionResult']['ResponseData']['ResponseData1'],
+                );
+            }
+        }
+    } catch(Exception $e) {
+        log_message("error", "Error: ".$e->getMessage());
+        // echo 'Error: ' . $e->getMessage();
+    }
+    $numeracion   = $retornar['Batch'];
+    $serial       = $retornar['Serial'];
+    $autorizacion = $retornar['Guid'];
+    $fechahora    = $retornar['TimeStamp'];
+    $bxml    = $retornar['BaseXML'];
+    $respuesta = array('response' => $bxml, 'guid' => $autorizacion, 'date' => $fechahora);
+    return $respuesta;
 }
 
 }
